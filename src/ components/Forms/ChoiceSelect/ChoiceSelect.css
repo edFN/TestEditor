@@ -1,0 +1,18 @@
+@import url("../../../styles/_vars.css");
+
+
+.checkBox-label{
+    font-family: var(--font-ptsans);
+    font-size: 12pt;
+    font-weight: normal;
+    color: var(--black-text-color);
+    margin-top:10px;
+
+
+}
+
+.checkBox-input{
+    width:25px;
+    height: 16px;
+    accent-color: var(--checkbox-checked-color);
+}

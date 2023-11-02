@@ -1,0 +1,71 @@
+@import url("../../../styles/_vars.css");
+
+
+header
+{
+    min-width: 100%;
+    background-color: var(--nav-color);
+    width:100%;
+}
+
+nav{
+    height: 6.5rem;
+
+}
+
+.nav-list{
+    list-style-type:none;
+}
+
+header .header-nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-bottom: 4rem;
+    font-size: 1.6rem;
+    font-family: var(--font-ptsans);
+    font-weight: normal;
+    color: var(--white-text-color);
+}
+.header-nav .nav-list {
+    padding-top: 2.5rem;
+}
+
+ul li:not(:first-child)
+{
+    margin-left:3rem;
+
+}
+.nav-list li {
+    display: inline;
+}
+
+.nav-list li a{
+    color:var(--white-text-color);
+    text-decoration:none;
+}
+
+.nav-list li a:visited {
+    color: var(--white-text-color);
+}
+
+.user-avatar{
+    display:flex;
+    gap: 1.5rem;
+    height: 7rem;
+}
+
+.header-nav .user-avatar span{
+    max-width: 17rem;
+}
+.header-nav img {
+    width: 4rem;
+    height: 4rem;
+    margin:auto 0;
+}
+
+.user-avatar span{
+    padding-top:1.6rem;
+    font-family: var(--font-ptsans);
+}
+

@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --bg-color: #E6EDF5;
+    --nav-color: #1871B1;
+    --white-text-color: #FAFAFA;
+    --black-text-color: #292424;
+    --grey-text-color: #BDBDBD;
+    --card-bg-color: #084773;
+    --checkbox-checked-color: #2AB514;
+    --field-bg-color: #E3DCDC;
+    --btn-close-color: #CE1832;
+    --hashtag-field-bg-color: #4C9ED8;
+    --font-ptsans: 'PT Sans', sans-serif;
+    --font-epilogue: 'Epilogue', sans-serif;
+    --text-color-view: #E0D0D0;
+}
+.conteiner
+{
+    max-width: 1440px;
+    margin:0 auto;
+}
+

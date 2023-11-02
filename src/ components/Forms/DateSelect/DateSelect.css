@@ -1,0 +1,59 @@
+@import url("../../../styles/_vars.css");
+
+
+.date-select-wrapper{
+
+}
+
+.date-icon{
+    width: 60%;
+    height: 60%;
+
+}
+.date-picker-value{
+    padding-top:0.2rem;
+}
+
+.date-picker-form{
+
+    cursor: pointer;
+
+    display:  flex;
+
+    gap: 0.6rem;
+
+    border: 0;
+
+    width:12rem;
+    height: 3rem;
+    border: 1px solid var(--grey-text-color);
+    color: #8c8787;
+
+    font-family: var(--font-epilogue);
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    padding-top:0.6rem;
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0.7rem;
+
+    border-radius: 10px;
+}
+
+.date-picker-form input{
+    cursor: none;
+    caret-color: transparent;
+    color:black;
+    font-size: 1.4rem;
+    background: none;
+}
+
+.date-picker-form:hover{
+    background: #f3eded;
+    color:#BDBDBD;
+}
+
+
