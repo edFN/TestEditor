@@ -26,6 +26,8 @@ header .header-nav {
     font-family: var(--font-ptsans);
     font-weight: normal;
     color: var(--white-text-color);
+    padding-left:2rem;
+    padding-right:2rem;
 }
 .header-nav .nav-list {
     padding-top: 2.5rem;

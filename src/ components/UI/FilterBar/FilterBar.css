@@ -90,3 +90,10 @@
     font-size: 12pt;
     color: #EFF4F8;
 }
+
+.range-block{
+    display: flex;
+    flex-direction: row;
+    gap:2rem;
+    margin-top: 1rem;
+}

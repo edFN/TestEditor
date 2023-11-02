@@ -6,7 +6,6 @@ const ChoiceSelect = ({fields, className}) => {
 
     console.log(fields)
 
-
     const formCheckBox = fields.map( (field) => (
         <label className="checkBox-label">
             <input className="checkBox-input" type="checkbox" name={field.variable}/>

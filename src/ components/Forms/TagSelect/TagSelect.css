@@ -1,0 +1,11 @@
+
+
+.tag-item{
+    display: block;
+    width:115px;
+    height:20px;
+    border-radius: 10px;    
+    background-color: #4C9ED8;
+    color: #fafafa;
+}
+
