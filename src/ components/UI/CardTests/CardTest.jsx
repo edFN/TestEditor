@@ -5,10 +5,11 @@ import "./CardTest.css"
 const CardTestItem = ({title,views})=>{
 
     const style={
-        background: `url(` + process.env.PUBLIC_URL + "/image/card.jpg) cover",
+        background: `url('https://swansoftwaresolutions.com/wp-content/uploads/2020/01/Benefits-of-Using-VUE.JS.jpeg') cover`,
         backgroundPosition: `center center`,
         backgroundRepeat: `no-repeat`,
-        backgroundSize:`50%`
+        backgroundSize:`50%`,
+        background: `green`
     }
 
     return (
@@ -28,7 +29,7 @@ const CardTestItem = ({title,views})=>{
 
 const CardTests = ()=>{
     const [cardItemsInfo, setCardItems] = useState([{
-        'title': "Какой сегодня ты рыбак?",
+        'title': "Тест Математика: Многочлены. Преобразование фурье",
         'views': 1000
     }, {
         'title': "Какой сегодн1я ты рыбак?",
@@ -37,12 +38,10 @@ const CardTests = ()=>{
     {
         'title': "Какой сегодн1я ты рыбак?",
         'views': 10000
-    },
-    {
+    },{
         'title': "Какой сегодн1я ты рыбак?",
         'views': 10000
-    },
-    {
+    },{
         'title': "Какой сегодн1я ты рыбак?",
         'views': 10000
     }]);
