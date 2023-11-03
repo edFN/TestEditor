@@ -31,7 +31,9 @@ const TagSelect = () => {
         "Новый", "Старый"
     ])
 
-    const variants_list = ["Анимация","Бобер","Проффесия"]
+    const handleDelete = (item)=>{
+        setTagItems(tagItems => tagItems.filter(i => i !== item));        
+    }
 
     return (
         tagItems.map(item => (
