@@ -51,6 +51,11 @@ ul li:not(:first-child)
     color: var(--white-text-color);
 }
 
+.nav-list li a:hover{
+    color: #bbdcff;
+    transition: 0.2s;
+}
+
 .user-avatar{
     display:flex;
     gap: 1.5rem;

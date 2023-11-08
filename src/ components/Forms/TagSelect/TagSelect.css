@@ -1,11 +1,33 @@
 
+@import url("../../../styles/_vars.css");
 
 .tag-item{
-    display: block;
-    width:115px;
-    height:20px;
-    border-radius: 10px;    
+    display: flex;
+    justify-content: space-between;
+    min-width:2rem;
+    height:1.5rem;
+    border-radius: 10px;
     background-color: #4C9ED8;
-    color: #fafafa;
-}
+    padding:0.5rem;
+    font-size: 0.8rem;
+    padding-top: 0.2rem;
+    font-family: var(--font-epilogue);
+    color: var(--white-text-color);
 
+}
+.tag-item-content{
+    display: flex;
+    width:100%;
+    gap:1rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tag-item-content img{
+    margin-top: 0.2rem;
+}
+.selected-tags-list{
+    display: flex;
+    flex-direction: row;
+    gap:0.5rem;
+    margin-top: 0.2rem;
+}

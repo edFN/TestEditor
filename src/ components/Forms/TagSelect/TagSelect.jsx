@@ -4,23 +4,16 @@ import React, { useState } from 'react'
 
 import "./TagSelect.css"
 
-const TagItem = ({parentList, title}) => {
-
-    const handleClick = () => {
-        const index = parentList.indexOf(title)
-        
-        console.log(parentList)
-
-        if(index > -1){
-            console.log("We are in")
-            parentList.splice(index,1);
-        }
-    }
+const TagItem = ({id,title, deleteFunction}) => {
 
     return (
         <div className="tag-item">
-            <span className="title">{title}</span>
-            <img src={process.env.PUBLIC_URL + "/icon/cross.svg"} alt="" className="exit"  onClick={handleClick}/>
+            <div className="tag-item-content">
+                <span className="title">{title}</span>
+                <span>
+                <img src={process.env.PUBLIC_URL + "/icon/cross.svg"} onClick={(e)=>deleteFunction(id)} alt="" className="exit"/>
+                </span>
+            </div>
         </div>
     )
 }
@@ -31,14 +24,17 @@ const TagSelect = () => {
         "Новый", "Старый"
     ])
 
-    const handleDelete = (item)=>{
-        setTagItems(tagItems => tagItems.filter(i => i !== item));        
+    const handleDelete = (id)=> {
+        const newTagSelectedList = tagItems.filter((item,i) => i != id)
+        setTagItems(newTagSelectedList);
     }
 
     return (
-        tagItems.map(item => (
-            <TagItem title={item} parentList={tagItems}/>
-        ))
+        <div className="selected-tags-list">
+            {tagItems.map((item,index) => (
+                <TagItem title={item} id={index} deleteFunction = {handleDelete}/>
+            ))}
+        </div>
     )
 
 }

@@ -11,7 +11,6 @@ const NavBar = () => {
     ]
 
 
-
     const listItems = navigationItems.map(item => (<li><a href="#">{item}</a></li>))
 
     return (

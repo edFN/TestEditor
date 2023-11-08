@@ -51,6 +51,8 @@
 
     background-color: var(--nav-color);
 
+    cursor: pointer;
+
     padding-top: 9px;
     padding-left: 39px;
     padding-right: 45px;
