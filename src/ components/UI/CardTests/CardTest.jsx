@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 
 import "./CardTest.css"
 
-const CardTestItem = ({title,views})=>{
+const CardTestItem = ({title,views, imageUrl})=>{
+
+    const defaultImageUrl = "https://d33wubrfki0l68.cloudfront.net/cb70de8399b0465df86781dad24222909debd694/6730f/images/2018/04/26/010-010-header-2.png"
+
+
 
     const styles={
-        background: `url("https://d33wubrfki0l68.cloudfront.net/cb70de8399b0465df86781dad24222909debd694/6730f/images/2018/04/26/010-010-header-2.png"), lightgray 50%`,
+        background: `url(` + imageUrl + ")" + `, lightgray 50%`,
         backgroundPosition: `center center`,
         backgroundRepeat: `no-repeat`,
         backgroundSize:`cover`,
-        backgroundBlendMode: `multiply`
+
     }
 
     return (
@@ -33,21 +37,26 @@ const CardTests = ()=>{
         'views': 10
     }, {
         'title': "Какой сегодня ты смешарик?",
-        'views': 10000
+        'views': 10000,
+        'imageUrl': "https://fikiwiki.com/uploads/posts/2022-02/1644882876_6-fikiwiki-com-p-smeshariki-krasivie-kartinki-7.jpg"
     },
     {
         'title': "Какой сегодн1я ты рыбак?",
         'views': 10000
+
     },{
         'title': "Какой сегодн1я ты рыбак?",
         'views': 10000
     },{
         'title': "КакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfds сегодн1я ты рыбак?",
-        'views': 10000
+        'views': 10000,
+        'imageUrl':'https://i.pinimg.com/originals/f8/56/b9/f856b91af5fd3bef29a666f4222dde47.jpg'
     }]);
 
+
+
     const cards = cardItemsInfo.map((item)=>(
-            <CardTestItem title={item.title} views={item.views}/>
+            <CardTestItem title={item.title} views={item.views} imageUrl={item.imageUrl}/>
         )
     )
     return (

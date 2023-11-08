@@ -5,12 +5,12 @@
     display: flex;
     justify-content: space-between;
     min-width:2rem;
-    height:1.5rem;
+    height:2rem;
     border-radius: 10px;
     background-color: #4C9ED8;
-    padding:0.5rem;
-    font-size: 0.8rem;
-    padding-top: 0.2rem;
+    padding:1rem;
+    font-size: 1rem;
+    padding-top: 0.1rem;
     font-family: var(--font-epilogue);
     color: var(--white-text-color);
 
@@ -21,10 +21,13 @@
     gap:1rem;
     flex-direction: row;
     justify-content: space-between;
+    padding-top: 0.5rem;
 }
 .tag-item-content img{
     margin-top: 0.2rem;
+    cursor: pointer;
 }
+
 .selected-tags-list{
     display: flex;
     flex-direction: row;

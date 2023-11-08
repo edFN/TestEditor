@@ -35,7 +35,7 @@ const SearchBar = () => {
                     </div>
                 </div>
 
-                {filterVisible ? <FilterBar/>: null}
+                {filterVisible ? <FilterBar visibleFunction={setFilterVisible}/>: null}
             </div>
         </div>
     );

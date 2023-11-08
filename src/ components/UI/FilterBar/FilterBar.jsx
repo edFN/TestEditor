@@ -6,7 +6,7 @@ import DateSelect from "../../Forms/DateSelect/DateSelect";
 import TagSelect from "../../Forms/TagSelect/TagSelect";
 import ChoiceSelect from "../../Forms/ChoiceSelect/ChoiceSelect";
 
-const FilterBar = () => {
+const FilterBar = ({visibleFunction}) => {
 
     const category = [
         {
@@ -62,7 +62,7 @@ const FilterBar = () => {
             </div>
 
             <div className="filter-bar-buttons">
-                <div className="button-decline">
+                <div className="button-decline" onClick={(e)=>visibleFunction(false)}>
                     <span>Отмена</span>
                 </div>
                 <div className="button-accept">
@@ -70,8 +70,6 @@ const FilterBar = () => {
                 </div>
             </div>
         </div>
-
-
     )
 
 }

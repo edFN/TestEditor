@@ -64,6 +64,7 @@
         float:right;
         gap:10px;
         padding-right: 10px;
+        cursor: pointer;
 }
 .filter-bar-buttons .button-accept{
     display: block;
