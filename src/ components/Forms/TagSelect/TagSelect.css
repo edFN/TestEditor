@@ -34,3 +34,17 @@
     gap:0.5rem;
     margin-top: 0.2rem;
 }
+
+.selected-tags-list-add{
+    display: block;
+    width:2rem;
+    height:2rem;
+    background: red;
+}
+.tag-search-block{
+    display: block;
+    position: absolute;
+    background: red;
+    width: 10rem;
+    height: 10rem;
+}

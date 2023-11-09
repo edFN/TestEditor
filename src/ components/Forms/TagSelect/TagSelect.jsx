@@ -1,17 +1,35 @@
-
-
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 
 import "./TagSelect.css"
 
-const TagItem = ({id,title, deleteFunction}) => {
+
+const SearchTag = ({addFunction}) => {
+
+    const [listTags, setList] = useState([
+        "Белгород", "Одик"
+    ])
+
+    return (
+        <div className="tag-search-block">
+            <ul>
+                {listTags.map((item) => {
+                    <li>#{item}</li>
+                })}
+            </ul>
+        </div>
+    )
+
+}
+
+const TagItem = ({id, title, deleteFunction}) => {
 
     return (
         <div className="tag-item">
             <div className="tag-item-content">
                 <span className="title">{title}</span>
                 <span>
-                <img src={process.env.PUBLIC_URL + "/icon/cross.svg"} onClick={(e)=>deleteFunction(id)} alt="" className="exit"/>
+                <img src={process.env.PUBLIC_URL + "/icon/cross.svg"} onClick={(e) => deleteFunction(id)} alt=""
+                     className="exit"/>
                 </span>
             </div>
         </div>
@@ -24,16 +42,25 @@ const TagSelect = () => {
         "Новый", "Старый"
     ])
 
-    const handleDelete = (id)=> {
-        const newTagSelectedList = tagItems.filter((item,i) => i != id)
+    const [visibleSearch, setVisibleSearch] = useState(false);
+
+    const handleDelete = (id) => {
+        const newTagSelectedList = tagItems.filter((item, i) => i != id)
         setTagItems(newTagSelectedList);
     }
 
+    const handleAddition = (name) => {
+        let arr = [...tagItems]
+        arr.push(name)
+        setTagItems(arr)
+    }
     return (
         <div className="selected-tags-list">
-            {tagItems.map((item,index) => (
-                <TagItem title={item} id={index} deleteFunction = {handleDelete}/>
+            {tagItems.map((item, index) => (
+                <TagItem title={item} id={index} deleteFunction={handleDelete} addFunction={handleAddition}/>
             ))}
+            <div className="selected-tags-list-add" onClick={(e)=>setVisibleSearch(!visibleSearch)}></div>
+            {visibleSearch ? <SearchTag addFunction={handleAddition}/>: null}
         </div>
     )
 
