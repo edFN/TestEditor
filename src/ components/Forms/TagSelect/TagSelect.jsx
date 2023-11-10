@@ -8,14 +8,23 @@ const SearchTag = ({addFunction}) => {
     const [listTags, setList] = useState([
         "Белгород", "Одик"
     ])
+    
+
+    function makeListTags()
+    {
+        return listTags.map((item) => (
+            <div className="list-tag-entry" onClick={(e)=>addFunction(item)}>
+                {item}
+            </div>
+        ))
+    }
+
+    const tagSearchSelect = makeListTags(); 
 
     return (
-        <div className="tag-search-block">
-            <ul>
-                {listTags.map((item) => {
-                    <li>#{item}</li>
-                })}
-            </ul>
+        <div className="tag-search-block" >
+           {tagSearchSelect}
+            
         </div>
     )
 
@@ -59,7 +68,7 @@ const TagSelect = () => {
             {tagItems.map((item, index) => (
                 <TagItem title={item} id={index} deleteFunction={handleDelete} addFunction={handleAddition}/>
             ))}
-            <div className="selected-tags-list-add" onClick={(e)=>setVisibleSearch(!visibleSearch)}></div>
+            <div className="selected-tags-list-add" onClick={(e)=>setVisibleSearch(!visibleSearch)}>+</div>
             {visibleSearch ? <SearchTag addFunction={handleAddition}/>: null}
         </div>
     )
