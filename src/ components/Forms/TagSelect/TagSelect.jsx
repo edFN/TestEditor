@@ -13,8 +13,8 @@ const SearchTag = ({addFunction}) => {
     function makeListTags()
     {
         return listTags.map((item) => (
-            <div className="list-tag-entry" onClick={(e)=>addFunction(item)}>
-                {item}
+            <div className="list-tag-entry" onClick={(e)=>addFunction('#'+item)}>
+                #{item}
             </div>
         ))
     }
