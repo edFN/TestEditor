@@ -23,9 +23,10 @@
 
 .card-item:hover{
     cursor: pointer;
-    scale: 1.05;
+    scale: 1.2;
     transition: 0.15s;
 }
+
 
 .card-item .header-card-item {
     display: block;
@@ -77,5 +78,132 @@
 
 .card-item img {
     margin-bottom: 0.3rem;
+}
+
+
+
+.wrapper-background-card-description{
+    display: block;
+    padding:200rem;
+    position: fixed;
+    top:0;
+    left: 0;
+    max-width:  60%;
+    z-index: 1;
+
+
+
+}
+
+
+.card-description-window{
+    display: flex;
+    flex-direction: row;
+    /*background: #E6EDF5;*/
+    background: rgba(255,255,255,1);
+    top:50%;
+    left:50%;
+    position: fixed;
+    width:95rem;
+    height:60rem;
+    z-index: 20;
+    font-family: var(--font-ptsans);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding:1.2rem;
+    padding-bottom: 2rem;
+}
+
+.card-description-image{
+    display: block;
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+}
+.card-description-content{
+    padding: 6rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 50%;
+
+
+}
+
+.card-description-content__header{
+    font-size: 24pt;
+    font-weight: bold;
+    max-width: 400px;
+    color: var(--black-text-color);
+    font-family:var(--font-epilogue);
+}
+
+.card-description-content__description{
+    margin-top: 2rem;
+    width: 100%;
+
+    height:75%;
+    font-family: var(--font-ptsans);
+    font-size: 14pt;
+    overflow: scroll;
+
+    padding-bottom: 2rem;
+}
+
+.card-description-content__filter{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 2rem;
+    justify-content: space-between;
+    font-size: 1.4em;
+
+
+}
+.content__category{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    vertical-align: center;
+}
+.content__access{
+    display: flex;
+    flex-direction: row;
+    gap:1rem;
+    vertical-align: center;
+}
+
+.card_filter_block{
+    width: 70%;
+    text-align: center;
+    padding: 0.2rem 0.5rem;
+    background: #4C9ED8;
+    border-radius: 10px;
+
+    color: var(--white-text-color);
+
+}
+
+.card-button-start__test{
+    display: block;
+    max-width: 60%;
+
+    color: var(--white-text-color);
+    background: #2AB514;
+    font-size: 2rem;
+    padding:1rem;
+    border-radius: 10px;
+    margin: 0 auto;
+
+    margin-top:1.5rem;
+
+    cursor: pointer;
+
+    text-align: center;
+}
+
+.card-button-start__test:hover {
+    background-color: #259311;
+    transition: 0.2s;
 }
 
