@@ -1,10 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 
-import NavBar from "./ components/UI/NavBar/NavBar";
-import SearchBar from "./ components/UI/SearchBar/SearchBar";
-
-import CardTests from './ components/UI/CardTests/CardTest';
+import CardTests from './feauters/SearchTestPanel/components/CardTest/CardTest';
+import SearchBar from './feauters/SearchTestPanel/components/SearchBar/SearchBar';
+import NavBar from './feauters/SearchTestPanel/components/NavBar/NavBar'
 
 function App() {
   return (

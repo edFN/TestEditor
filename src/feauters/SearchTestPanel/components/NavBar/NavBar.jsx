@@ -2,7 +2,7 @@ import React from 'react'
 
 import "./NavBar.css"
 
-import AvatarImg from "../assets/avatar.png";
+import AvatarImg from "../../assets/avatar.png";
 
 const NavBar = () => {
 

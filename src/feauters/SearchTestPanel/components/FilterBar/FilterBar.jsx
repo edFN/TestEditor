@@ -2,9 +2,10 @@ import React from 'react'
 
 
 import "./FilterBar.css"
-import DateSelect from "../../Forms/DateSelect/DateSelect";
-import TagSelect from "../../Forms/TagSelect/TagSelect";
-import ChoiceSelect from "../../Forms/ChoiceSelect/ChoiceSelect";
+import ChoiceSelect from "../../../../shared/components/ChoiceSelect/ChoiceSelect";
+import DateSelect from "../../../../shared/components/DateSelect/DateSelect";
+import TagSelect from "../../../../shared/components/TagSelect/TagSelect";
+
 
 const FilterBar = ({visibleFunction}) => {
 

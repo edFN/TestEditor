@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import "./SearchBar.css"
 import FilterBar from "../FilterBar/FilterBar";
 
+
 const SearchBar = () => {
 
     const [userInput, setUserInput] = useState("Введите текст для поиска")
