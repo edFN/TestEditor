@@ -6,8 +6,7 @@ const CardTestItem = (props)=>{
 
     const defaultImageUrl = "https://d33wubrfki0l68.cloudfront.net/cb70de8399b0465df86781dad24222909debd694/6730f/images/2018/04/26/010-010-header-2.png"
 
-    const [visibleDescription, setDescription] = useState(false)
-    ;
+    const [visibleDescription, setDescription] = useState(false);
 
     const styles={
         background: `url(` + props.cardInfo.imageUrl + ")" + `, lightgray 50%`,
@@ -61,13 +60,11 @@ const CardTests = ()=>{
     },{
         'title': "КакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfds сегодн1я ты рыбак?",
         'views': 10000,
-        'imageUrl':'https://i.pinimg.com/originals/f8/56/b9/f856b91af5fd3bef29a666f4222dde47.jpg'
+        'imageUrl':'https://i.pinimg.com/originals/f8/56/b9/f856b91af5fd3bef29a666f4222dde47.jpg',
+        'description': "flowerbloom"
     }]);
 
     const [isDescriptionAvailable, setDescriptionAvailable] = useState(true);
-
-
-
 
     const cards = cardItemsInfo.map((item)=>(
             <CardTestItem cardInfo = {item}/>
@@ -93,7 +90,6 @@ const CardTests = ()=>{
             <div className="card-items-collection">
                 {cards}
             </div>
-            {/*<CardDecriptionWindow {...cardDescription}/>*/}
         </div>
     )
 }

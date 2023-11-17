@@ -19,7 +19,4 @@ const ChoiceSelect = ({fields, className}) => {
 
 }
 
-
-
-
 export default  ChoiceSelect;

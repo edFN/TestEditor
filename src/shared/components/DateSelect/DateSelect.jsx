@@ -31,10 +31,7 @@ const DateSelect = () => {
         }
 
         setDateInput(formattedDate)
-
-
     };
-
 
     return (
         <div className="date-select-wrapper">
