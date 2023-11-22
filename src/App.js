@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
 
-import CardTests from './feauters/SearchTestPanel/components/CardTest/CardTest';
-import SearchBar from './feauters/SearchTestPanel/components/SearchBar/SearchBar';
-import NavBar from './feauters/SearchTestPanel/components/NavBar/NavBar'
+import {Route, Routes} from 'react-router-dom'
 
 import PageLayout from './shared/layouts/PageLayout/PageLayout';
+import TestViewPage from "./feauters/SearchTestPanel/conteiner/TestViewPage";
+import NotFound from "./feauters/NotFound/conteiner/NotFound";
 
 function App() {
   return (
-      <>
-        <PageLayout>
-          <SearchBar/>
-          <CardTests/>
-        </PageLayout>
-        {/* <NavBar />
-        <SearchBar/>
-        <CardTests/> */}
-      </>
+      <PageLayout>
+          <Routes>
+              <Route path='/' element={<TestViewPage/>}/>
+              <Route path='*' element={<NotFound/>}/>
+          </Routes>
+      </PageLayout>
   );
 }
 

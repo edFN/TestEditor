@@ -10,7 +10,6 @@ const NavBar = () => {
         "Главное", "Руководство", "Редактор тестов"
     ]
 
-
     const listItems = navigationItems.map(item => (<li><a href="#">{item}</a></li>))
 
     return (

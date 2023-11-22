@@ -18,13 +18,14 @@
 
     width: 17rem;
     height: 235px;
-    border-radius: 10px;;
+    border-radius: 10px;
+    transition: 0.2s;
 }
 
 .card-item:hover{
     cursor: pointer;
     scale: 1.2;
-    transition: 0.15s;
+    transition: 0.35s;
 }
 
 
@@ -184,26 +185,4 @@
 
 }
 
-.card-button-start__test{
-    display: block;
-    max-width: 60%;
-
-    color: var(--white-text-color);
-    background: #2AB514;
-    font-size: 2rem;
-    padding:1rem;
-    border-radius: 10px;
-    margin: 0 auto;
-
-    margin-top:1.5rem;
-
-    cursor: pointer;
-
-    text-align: center;
-}
-
-.card-button-start__test:hover {
-    background-color: #259311;
-    transition: 0.2s;
-}
 

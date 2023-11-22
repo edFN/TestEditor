@@ -1,6 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react'
 
 import "./CardTest.css"
+import ButtonUI from "../../../../shared/components/Button/Button";
+import CenterLayout from "../../../../shared/layouts/CenterLayout/CenterLayout";
 
 const CardTestItem = (props)=>{
 
@@ -145,11 +147,10 @@ const CardDecriptionWindow = (props)=>{
                             </div>
                         </div>
                     </div>
-                    <div className="button-conteiner-block">
-                        <div className="card-button-start__test">
-                            <span>Пройти тест</span>
-                        </div>
-                    </div>
+                    <CenterLayout>
+                            <ButtonUI text="Пройти текст" type={'big green'}
+                        />
+                    </CenterLayout>
                 </div>
             </div>
         </div>

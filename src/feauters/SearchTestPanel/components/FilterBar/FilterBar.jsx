@@ -63,15 +63,8 @@ const FilterBar = ({visibleFunction}) => {
             </div>
 
             <div className="filter-bar-buttons">
-
-                <ButtonUI onClickEvent={(e)=>visibleFunction(false)} text="Отмена" style={{
-                    backgroundColor:`#CE1832`,
-                }}/>
-
-                <ButtonUI text="Применить" style={{
-                    backgroundColor:`#4C9ED8`,
-                }}/>
-
+                <ButtonUI onClickEvent={(e)=>visibleFunction(false)} text="Отмена" type={'small red'}/>
+                <ButtonUI text="Применить" type={'small green'}/>
             </div>
         </div>
     )

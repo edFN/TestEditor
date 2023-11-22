@@ -4,14 +4,13 @@ import React, { useState } from 'react';
 
 import "./Button.css";
 
-const ButtonUI = ({onClickEvent, text, style={}}) => {
 
-    console.log(style)
 
+const ButtonUI = ({onClickEvent, text, type}) => {
     return (
-       <button onClick={onClickEvent}  className='ui-button-component' style={style} >
+       <div onClick={onClickEvent} className={`ui-button-component ${type}`}>
             <span>{text}</span>
-       </button>
+       </div>
     )
 }
 

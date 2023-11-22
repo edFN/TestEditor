@@ -1,20 +1,52 @@
 .ui-button-component{
-    display: block;
-    max-width:200px;
     height: 35px;
     border-radius: 10px;
-    /* padding-top:10px; */
     cursor: pointer;
-    padding: 1rem 2rem 1.2rem 2rem;
-    padding-bottom: 2.5rem;
+
+    padding: 0.7rem 2rem;
     text-align: center;
     border:0;
+    margin: 0 auto;
+}
+
+.small{
+    min-width: 50%;
+    max-width: 60%;
+}
+
+.big{
+    min-width: 60%;
+    max-width: 80%;
+}
+
+.green{
+    background-color: #2AB514;
+}
+.green:hover{
+    background-color: #1f8c0d;
+}
+
+.blue{
+    background-color: #4C9ED8;
+}
+.blue:hover{
+    background-color: #2b719d;
+}
+
+.red{
+    background-color: #CE1832;
+}
+
+.red:hover{
+    background-color: #9d0c1c;
 }
 
 .ui-button-component span{
     font-family: var(--font-epilogue);
     font-weight: bold;
     font-size: 12pt;
+
     color: #EFF4F8;
 }
+
 
