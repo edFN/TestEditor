@@ -5,7 +5,7 @@ import "./FilterBar.css"
 import ChoiceSelect from "../../../../shared/components/ChoiceSelect/ChoiceSelect";
 import DateSelect from "../../../../shared/components/DateSelect/DateSelect";
 import TagSelect from "../../../../shared/components/TagSelect/TagSelect";
-
+import ButtonUI from '../../../../shared/components/Button/Button';
 
 const FilterBar = ({visibleFunction}) => {
 
@@ -63,12 +63,15 @@ const FilterBar = ({visibleFunction}) => {
             </div>
 
             <div className="filter-bar-buttons">
-                <div className="button-decline" onClick={(e)=>visibleFunction(false)}>
-                    <span>Отмена</span>
-                </div>
-                <div className="button-accept">
-                    <span>Применить</span>
-                </div>
+
+                <ButtonUI onClickEvent={(e)=>visibleFunction(false)} text="Отмена" style={{
+                    backgroundColor:`#CE1832`,
+                }}/>
+
+                <ButtonUI text="Применить" style={{
+                    backgroundColor:`#4C9ED8`,
+                }}/>
+
             </div>
         </div>
     )

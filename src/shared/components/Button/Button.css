@@ -1,0 +1,20 @@
+.ui-button-component{
+    display: block;
+    max-width:200px;
+    height: 35px;
+    border-radius: 10px;
+    /* padding-top:10px; */
+    cursor: pointer;
+    padding: 1rem 2rem 1.2rem 2rem;
+    padding-bottom: 2.5rem;
+    text-align: center;
+    border:0;
+}
+
+.ui-button-component span{
+    font-family: var(--font-epilogue);
+    font-weight: bold;
+    font-size: 12pt;
+    color: #EFF4F8;
+}
+

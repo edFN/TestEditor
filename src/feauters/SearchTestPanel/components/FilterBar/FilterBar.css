@@ -68,33 +68,6 @@
         margin-top:1rem;
         padding-bottom: 0.5rem;
 }
-.filter-bar-buttons .button-accept{
-    display: block;
-    width:110px;
-    height: 35px;
-    background-color: #4C9ED8;
-    border-radius: 10px;
-    padding-top:10px;
-    text-align: center;
-
-}
-.filter-bar-buttons .button-decline{
-
-    display: block;
-    width:110px;
-    height:35px;
-    border-radius: 10px;
-    padding-top:10px;
-    text-align: center;
-    background-color: var(--btn-close-color);
-}
-
-.filter-bar-buttons span{
-    font-family: var(--font-epilogue);
-    font-weight: bold;
-    font-size: 12pt;
-    color: #EFF4F8;
-}
 
 .range-block{
     display: flex;

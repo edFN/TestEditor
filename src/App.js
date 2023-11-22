@@ -5,12 +5,18 @@ import CardTests from './feauters/SearchTestPanel/components/CardTest/CardTest';
 import SearchBar from './feauters/SearchTestPanel/components/SearchBar/SearchBar';
 import NavBar from './feauters/SearchTestPanel/components/NavBar/NavBar'
 
+import PageLayout from './shared/layouts/PageLayout/PageLayout';
+
 function App() {
   return (
       <>
-        <NavBar />
+        <PageLayout>
+          <SearchBar/>
+          <CardTests/>
+        </PageLayout>
+        {/* <NavBar />
         <SearchBar/>
-        <CardTests/>
+        <CardTests/> */}
       </>
   );
 }
