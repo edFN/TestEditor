@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 
 import "./SearchBar.css"
 import FilterBar from "../FilterBar/FilterBar";
+import { TextFieldUIBase } from '../../../../shared/components/TextFieldUI/TextField';
 
 
 const SearchBar = () => {
@@ -27,7 +28,8 @@ const SearchBar = () => {
             <div className="search-bar">
                 <div className="search-bar-left">
                     <img src={process.env.PUBLIC_URL + "/icon/search.svg"}/>
-                    <input type="text" onClick={handleSearchClick} onChange={handleSearchChange} value={userInput}/>
+                    <TextFieldUIBase type={'tf-text-grey'} placeHolder={userInput} />
+                    {/* <input type="text" onClick={handleSearchClick} onChange={handleSearchChange} value={userInput}/> */}
                 </div>
 
                 <div className="search-bar-right">
