@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 
 import "./TextField.css"
 
-export const TextFieldUIBase = ({fieldName, onChangeAction ,type , placeHolder = "", name=""}) => {
+export const TextFieldUIBase = ({fieldName, onChangeAction ,type , placeHolder = "", name="", typeForm="text"}) => {
     return (
-        <input type='text' className={`text-field-ui ${type}`} name={fieldName} placeHolder={placeHolder} onChange={onChangeAction} name={name}/>
+        <input type={typeForm} className={`text-field-ui ${type}`} name={fieldName} placeHolder={placeHolder} onChange={onChangeAction} name={name}/>
     )
 }
 
