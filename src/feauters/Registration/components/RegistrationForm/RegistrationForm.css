@@ -1,0 +1,50 @@
+@import url("../../../styles/_vars.css");
+
+.register-block{
+    display: block;
+    width: 40rem;
+    min-height: 20rem;
+
+    margin: 5rem auto;
+
+    background: var(--card-bg-color);
+
+    padding: 2rem;
+}
+
+.register-block .register-block-title{
+    font-size: 2rem;
+    text-align: center;
+    color: var(--grey-text-color);
+    font-weight: bold;
+    font-family: var(--font-ptsans);
+}
+
+.register-block .register-form{
+    padding-left: 1rem;
+    margin-top:2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.register-form label {
+    color:var(--white-text-color);
+    font-size: 1.2rem;
+    font-family: var(--font-epilogue);
+}
+.form-register-item{
+    margin-top: 20rem;
+}
+
+.birth_date-form{
+    padding:10px;
+    border: 0;
+    border-radius: 10px;
+    margin-top:0.5rem;
+}
+
+.avatar-date-form{
+    color: var(--white-text-color);
+    margin-top:1.2rem;
+}

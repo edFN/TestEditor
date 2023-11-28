@@ -5,7 +5,7 @@ function isNumber(char) {
     return /^\d$/.test(char);
 }
 
-const DateSelect = () => {
+const DateSelect = ({name}) => {
 
     const [dateInput, setDateInput] = useState("");
 
@@ -37,7 +37,7 @@ const DateSelect = () => {
         <div className="date-select-wrapper">
             <div className="date-picker-form">
                 <img src={process.env.PUBLIC_URL + "/icon/date.svg"} className="date_icon"/>
-                <input type="text" className="date-picker-value" value={dateInput} placeholder="DD/MM/YYYY" onChange={handleChange}/>
+                <input type="text" className="date-picker-value" value={dateInput} placeholder="DD/MM/YYYY" name={name} onChange={handleChange}/>
             </div>
         </div>
     )
