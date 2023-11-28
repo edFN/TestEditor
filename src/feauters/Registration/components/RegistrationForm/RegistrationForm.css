@@ -7,41 +7,49 @@
 
     margin: 5rem auto;
 
-    background: var(--card-bg-color);
+    background: var(--nav-color);
 
     padding: 2rem;
+
+    border-radius: 10px;
+
 }
 
 .register-block .register-block-title{
     font-size: 2rem;
     text-align: center;
-    color: var(--grey-text-color);
+    color: var(--white-text-color);
     font-weight: bold;
     font-family: var(--font-ptsans);
 }
 
 .register-block .register-form{
-    padding-left: 1rem;
+    padding-left: 2rem;
     margin-top:2rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
 }
 
 .register-form label {
+    display: block;
+    padding: 0.4rem;
     color:var(--white-text-color);
     font-size: 1.2rem;
     font-family: var(--font-epilogue);
 }
 .form-register-item{
-    margin-top: 20rem;
+    margin-top: 204rem;
+    background: red;
+    width: 100%;
 }
 
 .birth_date-form{
     padding:10px;
     border: 0;
     border-radius: 10px;
-    margin-top:0.5rem;
+    font-size: 1.5rem;
 }
 
 .avatar-date-form{

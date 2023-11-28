@@ -14,7 +14,6 @@ export const BorderTextFieldUI = (props)=>{
 
     return (
         <div className={`border-text-field-wrapper ${props.borderType}`}>
-
             <TextFieldUIBase {...props}/>
         </div>
     )

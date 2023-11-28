@@ -13,10 +13,11 @@ const RegistrationForm = () => {
 
     const [formData, setFormData] = useState({
         email: '',
-        lastName: '',
-        name: '',
+        last_name: '',
+        first_name: '',
         birth_date: null,
-        avatar: null
+        avatar: null,
+        password: ''
     })
 
     const onChange = (e) => {
@@ -75,15 +76,25 @@ const RegistrationForm = () => {
                     <BorderTextFieldUI placeHolder="Антонович" name="patronymic" borderType={'tf-30rem'} className="form-register-item" onChangeAction={onChange}/>
                 </div>
                 <div className={"form-item"}>
-                    <label>Дата рождения</label><br/>
+                    <label>Пароль</label>
+                    <BorderTextFieldUI placeHolder="Пароль" typeForm="password"
+                                       name="patronymic" borderType={'tf-30rem'} className="form-register-item" onChangeAction={onChange}/>
+                </div>
+                <div className={"form-item"}>
+                    <label>Повтор пароля</label>
+                    <BorderTextFieldUI placeHolder="Пароль" typeForm="password"
+                                       name="patronymic" borderType={'tf-30rem'} className="form-register-item" onChangeAction={onChange}/>
+                </div>
+                <div className={"form-item"}>
+                    <label>Дата рождения</label>
                     <input type="date" name="birth_date" className={'birth_date-form'} onChange={onChange} />
                 </div>
                 <div className={"form-item"}>
-                    <label>Аватарка</label><br/>
+                    <label>Аватарка</label>
                     <input type='file' name="avatar" className={"avatar-date-form"} onChange={onChange}/>
                 </div>
                 <div className={"form-item"}>
-                    <ButtonUI type={'green'} text={"Отправить"} onClickEvent={sumbitHandle} />
+                    <ButtonUI type={'green'} text={"Регистрация"} type={'small green'} onClickEvent={sumbitHandle} />
                 </div>
             </div>
 
