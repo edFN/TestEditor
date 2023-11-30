@@ -4,7 +4,7 @@ import "./NavBar.css"
 
 import AvatarImg from "../../assets/avatar.png";
 
-const NavBar = () => {
+const NavBar = ({user}) => {
 
     const navigationItems = [
         "Главное", "Руководство", "Редактор тестов"
@@ -20,8 +20,8 @@ const NavBar = () => {
                         {listItems}
                     </ul>
                     <div className="user-avatar">
-                        <img src={AvatarImg}/>
-                        <span>Зубенко михаил петрович</span>
+                        <img src={user === null ? {AvatarImg}: user.avatar}/>
+                        {user !== null ? <span>{`${user.last_name} ${user.first_name} ${user.patronymic}`}</span>: <span>Гость</span>}
                     </div>
 
                 </nav>

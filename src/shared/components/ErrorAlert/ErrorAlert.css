@@ -1,0 +1,25 @@
+@import url("../../../feauters/styles/_vars.css");
+
+.error-alert-block{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    top:20rem;
+    right:5rem;
+    background: #f82a56;
+    padding: 1.5rem;
+}
+
+.error-alert-block__header{
+    font-family: var(--font-epilogue);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.error-alert-block__description{
+    font-family: var(--font-ptsans);
+    font-size: 1.1rem;
+    font-weight: normal;
+    text-wrap: normal;
+}
