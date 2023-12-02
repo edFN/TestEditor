@@ -74,10 +74,9 @@ const RegistrationForm = () => {
             if(response.status === 201){
                 setAlertState(true)
                 await loginUser(formData.email, formData.password)
-
-                // setTimeout(()=>{
-                //     window.location.href="/"
-                // }, 3000)
+                setTimeout(()=>{
+                    window.location.href="/"
+                }, 3000)
             }else{
                 setAlertState(false)
             }
