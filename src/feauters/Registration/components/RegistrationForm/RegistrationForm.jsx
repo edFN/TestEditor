@@ -102,34 +102,34 @@ const RegistrationForm = () => {
                 <div className='register-form'>
                     <div className={"form-item"}>
                         <label>Email</label>
-                        <BorderTextFieldUI placeHolder="vitya@selivanov.com" name="email" borderType={'tf-30rem'}
+                        <BorderTextFieldUI placeHolder="vitya@selivanov.com" name="email" borderType={'tf-30rem'} type='tf-field-standart'
                                            className="form-register-item" onChangeAction={onChange}/>
                     </div>
                     <div className={"form-item"}>
                         <label>Фамилия</label>
-                        <BorderTextFieldUI placeHolder="Антонов" name="last_name" borderType={'tf-30rem'}
+                        <BorderTextFieldUI placeHolder="Антонов" name="last_name" borderType={'tf-30rem'} type='tf-field-standart'
                                            className="form-register-item" onChangeAction={onChange}/>
                     </div>
                     <div className={"form-item"}>
                         <label>Имя</label>
-                        <BorderTextFieldUI placeHolder="Антон" name="first_name" borderType={'tf-30rem'}
+                        <BorderTextFieldUI placeHolder="Антон" name="first_name" borderType={'tf-30rem'} type='tf-field-standart'
                                            className="form-register-item" onChangeAction={onChange}/>
                     </div>
                     <div className={"form-item"}>
                         <label>Отчество</label>
-                        <BorderTextFieldUI placeHolder="Антонович" name="patronymic" borderType={'tf-30rem'}
+                        <BorderTextFieldUI placeHolder="Антонович" name="patronymic" borderType={'tf-30rem'} type='tf-field-standart'
                                            className="form-register-item" onChangeAction={onChange}/>
                     </div>
                     <div className={"form-item"}>
                         <label>Пароль</label>
                         <BorderTextFieldUI placeHolder="Пароль" typeForm="password"
-                                           name="password" borderType={'tf-30rem'} className="form-register-item"
+                                           name="password" borderType={'tf-30rem'} className="form-register-item" type='tf-field-standart'
                                            onChangeAction={onChange}/>
                     </div>
                     <div className={"form-item"}>
                         <label>Повтор пароля</label>
                         <BorderTextFieldUI placeHolder="Пароль" typeForm="password"
-                                           name="patronymic" borderType={'tf-30rem'} className="form-register-item"
+                                           name="patronymic" borderType={'tf-30rem'} className="form-register-item" type={'tf-field-standart'}
                                            onChangeAction={onChange}/>
                     </div>
                     <div className={"form-item"}>

@@ -6,15 +6,14 @@
     max-width: 60rem;
     min-height: 20rem;
 
+    width: 50rem;
+
     display: block;
     position: absolute;
 
     z-index: 999;
     background: white;
-    padding-top: 20px;
-    padding-left: 10px;
-
-
+    padding: 1.2rem;
 
     margin-top:8rem;
     margin-left:16rem;

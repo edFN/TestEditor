@@ -5,10 +5,14 @@ import FilterBar from "../FilterBar/FilterBar";
 import { TextFieldUIBase } from '../../../../shared/components/TextFieldUI/TextField';
 
 
-const SearchBar = () => {
+const SearchBar = ({testOption, setFilterData, setSearch}) => {
+
+
+    console.log("SearchBar", testOption)
 
     const [userInput, setUserInput] = useState("Введите текст для поиска")
     const [filterVisible, setFilterVisible] = useState(false);
+
 
     const handleSearchClick = () => {
         setUserInput("");
@@ -16,6 +20,7 @@ const SearchBar = () => {
 
     const handleSearchChange = (e) => {
         setUserInput(e.target.value)
+        setSearch(e.target.value)
     }
 
     const handleFilterClick = (e) => {
@@ -28,7 +33,7 @@ const SearchBar = () => {
             <div className="search-bar">
                 <div className="search-bar-left">
                     <img src={process.env.PUBLIC_URL + "/icon/search.svg"}/>
-                    <TextFieldUIBase type={'tf-text-grey'} placeHolder={userInput} />
+                    <TextFieldUIBase type={'tf-text-grey tf-field-standart'} placeHolder={"Введите текст для поиска"} onChangeAction={handleSearchChange}/>
                     {/* <input type="text" onClick={handleSearchClick} onChange={handleSearchChange} value={userInput}/> */}
                 </div>
 
@@ -38,7 +43,8 @@ const SearchBar = () => {
                     </div>
                 </div>
 
-                {filterVisible ? <FilterBar visibleFunction={setFilterVisible}/>: null}
+                {filterVisible ? <FilterBar visibleFunction={setFilterVisible}
+                                            testOption={testOption} setFilterData={setFilterData}/>: null}
             </div>
         </div>
     );

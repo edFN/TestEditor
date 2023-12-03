@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 
 import "./FilterBar.css"
@@ -6,65 +6,72 @@ import ChoiceSelect from "../../../../shared/components/ChoiceSelect/ChoiceSelec
 import DateSelect from "../../../../shared/components/DateSelect/DateSelect";
 import TagSelect from "../../../../shared/components/TagSelect/TagSelect";
 import ButtonUI from '../../../../shared/components/Button/Button';
+import useLocalStorage from "../../../../shared/hooks/useLocalStorage";
 
-const FilterBar = ({visibleFunction}) => {
+const FilterBar = ({visibleFunction, testOption,setFilterData}) => {
 
-    const category = [
-        {
-            name: "Учебное",
-            variable: "is_educational"
-        },
-        {
-            name: "Психология",
-            variable: "is_psycho"
-        },
-        {
-            name:"Развлечение",
-            variable: "is_fun"
-        },{
-            name:"Развлечение",
-            variable: "is_fun"
-        },{
-            name:"Развлечение",
-            variable: "is_fun"
-        },{
-            name:"Развлечение",
-            variable: "is_fun"
-        },{
-            name:"Развлечение",
-            variable: "is_fun"
-        },{
-            name:"Развлечение",
-            variable: "is_fun"
+
+    const category = testOption.type.choices
+
+    console.log("Category", category)
+
+    const [filterSets, setFilter] = useLocalStorage('filterSearch',{
+        type: [],
+        created_at_in: '',
+        created_at_out: '',
+        hashtags: []
+    })
+
+
+    const handleTypeChanged = (e)=>{
+
+        let updatedArray = []
+
+        if(e.target.checked){
+            updatedArray = [...filterSets.type,parseInt(e.target.name)]
+        }else{
+            updatedArray = filterSets.type.filter((type)=>type !== parseInt(e.target.name))
         }
-    ]
+        setFilter({...filterSets, type: updatedArray})
+    }
+
+    const handleDateChange = (name, value)=>{
+        setFilter({...filterSets, [name]: value})
+    }
+
+    const handleClickAccept = (e) => {
+        setFilterData(filterSets)
+        visibleFunction(false)
+    }
+
 
     return (
         <div className="filterbar-block">
 
             <div className="filter-bar-category">
                 <h3>Категория</h3>
-                <ChoiceSelect className={"category-choice"} fields={category}/>
+                <ChoiceSelect className={"category-choice"} name="type" onChange={handleTypeChanged} fields={category}
+                initialState={filterSets.type}/>
             </div>
 
             <div className="filter-bar-other">
                 <div className="filter-bar-other-range">
                     <h3>Период создания теста</h3>
                     <div className="range-block">
-                        <DateSelect/>
-                        <DateSelect/>
+                        <DateSelect name="created_at_in" onChange={handleDateChange} initialState={filterSets.created_at_in}/>
+                        <DateSelect name="created_at_out" onChange={handleDateChange} initialState={filterSets.created_at_out}/>
                     </div>
                 </div>
 
                 <div className="filter-bar-other-tags">
                     <h3>Теги</h3>
-                    <TagSelect/>
+                    <TagSelect testOption={testOption}/>
                 </div>
             </div>
 
             <div className="filter-bar-buttons">
                 <ButtonUI onClickEvent={(e)=>visibleFunction(false)} text="Отмена" type={'small red'}/>
-                <ButtonUI text="Применить" type={'small green'}/>
+                <ButtonUI text="Применить" type={'small green'} onClickEvent={(e)=>handleClickAccept(e)}/>
             </div>
         </div>
     )

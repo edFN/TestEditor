@@ -1,20 +1,31 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import "./TagSelect.css"
+import {TextFieldUIBase} from "../TextFieldUI/TextField";
 
 
 const SearchTag = ({addFunction}) => {
 
-    const [listTags, setList] = useState([
-        "Белгород", "Одик"
-    ])
-    
+    const [searchText, setSearchText] = useState('')
+
+
+    const [listTags, setList] = useState([])
+
+    useEffect( () => {
+        fetch(`http://localhost:8000/test/hashtags?search=${searchText}`,
+            {method:'GET'}).then(response=>response.json()).then(data=>setList(data))
+    }, [searchText])
+
+
+    const handleSearchChange = (e) => {
+        setSearchText(e.target.value)
+    }
 
     function makeListTags()
     {
         return listTags.map((item) => (
-            <div className="list-tag-entry" onClick={(e)=>addFunction('#'+item)}>
-                #{item}
+            <div className="list-tag-entry" onClick={(e)=>addFunction(item.name)} name={item.id}>
+                #{item.name}
             </div>
         ))
     }
@@ -23,6 +34,9 @@ const SearchTag = ({addFunction}) => {
 
     return (
         <div className="tag-search-block" >
+            <div style={{borderBottom:`1px solid #333`}}>
+            <TextFieldUIBase type='tf-field-smaller' name="searchHashTag" placeHolder='Введите строку для поиска' onChangeAction={handleSearchChange}/>
+            </div>
            {tagSearchSelect}
             
         </div>
@@ -45,7 +59,7 @@ const TagItem = ({id, title, deleteFunction}) => {
     )
 }
 
-const TagSelect = () => {
+const TagSelect = ({testOption}) => {
 
     const [tagItems, setTagItems] = useState([
         "Новый", "Старый"

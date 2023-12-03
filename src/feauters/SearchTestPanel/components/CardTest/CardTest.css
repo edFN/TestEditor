@@ -130,11 +130,12 @@
 
 
 }
-
 .card-description-content__header{
     font-size: 24pt;
     font-weight: bold;
-    max-width: 400px;
+    max-width: 40rem;;
+    overflow:clip;
+    text-wrap: normal;
     color: var(--black-text-color);
     font-family:var(--font-epilogue);
 }

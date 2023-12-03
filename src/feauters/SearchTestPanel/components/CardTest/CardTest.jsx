@@ -3,6 +3,7 @@ import React, {useEffect, useRef, useState} from 'react'
 import "./CardTest.css"
 import ButtonUI from "../../../../shared/components/Button/Button";
 import CenterLayout from "../../../../shared/layouts/CenterLayout/CenterLayout";
+import useTestList from "../../hooks/useTestList";
 
 const CardTestItem = (props)=>{
 
@@ -11,7 +12,7 @@ const CardTestItem = (props)=>{
     const [visibleDescription, setDescription] = useState(false);
 
     const styles={
-        background: `url(` + props.cardInfo.imageUrl + ")" + `, lightgray 50%`,
+        background: `url(` + props.cardInfo.image + ")" + `, lightgray 50%`,
         backgroundPosition: `center center`,
         backgroundRepeat: `no-repeat`,
         backgroundSize:`cover`,
@@ -43,49 +44,12 @@ const CardTestItem = (props)=>{
     )
 }
 
-const CardTests = ()=>{
-    const [cardItemsInfo, setCardItems] = useState([{
-        'title': "Тест Математика: Многочлены. Преобразование фурье",
-        'views': 10
-    }, {
-        'title': "Какой сегодня ты смешарик?",
-        'views': 10000,
-        'imageUrl': "https://fikiwiki.com/uploads/posts/2022-02/1644882876_6-fikiwiki-com-p-smeshariki-krasivie-kartinki-7.jpg"
-    },
-    {
-        'title': "Какой сегодн1я ты рыбак?",
-        'views': 10000
+const CardTests = ({testList})=>{
 
-    },{
-        'title': "Какой сегодн1я ты рыбак?",
-        'views': 10000
-    },{
-        'title': "КакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfdsКакойsdfsdfdsfdsfdsfsdafdsfds сегодн1я ты рыбак?",
-        'views': 10000,
-        'imageUrl':'https://i.pinimg.com/originals/f8/56/b9/f856b91af5fd3bef29a666f4222dde47.jpg',
-        'description': "flowerbloom"
-    }]);
-
-    const [isDescriptionAvailable, setDescriptionAvailable] = useState(true);
-
-    const cards = cardItemsInfo.map((item)=>(
+    const cards = testList.map((item)=>(
             <CardTestItem cardInfo = {item}/>
         )
     )
-
-    const cardDescription = {
-        "title": "Работа",
-        "description": "Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на " +
-            "латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, использу" +
-            "я Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул " +
-            "в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset " +
-            "с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки" +
-            " типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.",
-        "category": "Психолохия",
-        "imageUrl": "https://fikiwiki.com/uploads/posts/2022-02/1644882876_6-fikiwiki-com-p-smeshariki-krasivie-kartinki-7.jpg",
-        "is_private":true
-
-    }
 
     return (
         <div className="conteiner">
@@ -102,8 +66,9 @@ const CardDecriptionWindow = (props)=>{
 
     const cardRef = useRef();
 
+
     const styles={
-        background: `url(` + props.imageUrl + ")" + `, lightgray 50%`,
+        background: `url(` + props.image + ")" + `, lightgray 50%`,
         backgroundPosition: `center center`,
         // backgroundRepeat: `no-repeat`,
         backgroundSize:`cover`,
@@ -124,7 +89,7 @@ const CardDecriptionWindow = (props)=>{
                 <div className="card-description-image" style={styles}></div>
                 <div className="card-description-content">
                     <div className="card-description-content__header">
-                        {props.title}
+                        <span>{props.title}</span>
                     </div>
 
                     <div className="card-description-content__description">
@@ -136,7 +101,7 @@ const CardDecriptionWindow = (props)=>{
                         <div className="content__category">
                             <span>Категория</span>
                             <div className="card_filter_block">
-                                <span>{props.category}</span>
+                                <span>{props.type}</span>
                             </div>
                         </div>
 

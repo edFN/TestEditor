@@ -56,4 +56,13 @@
     color:#BDBDBD;
 }
 
+.date-picker-datepicker{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    width: 1.8rem;
+    height: 2.2rem;
+    background: red;
+    transform: scaleX(-1);
+}
 
