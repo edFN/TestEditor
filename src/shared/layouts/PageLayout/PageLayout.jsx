@@ -25,7 +25,9 @@ const PageLayout = ({children}) => {
     return (
         <>
         <NavBar user={user}/>
-        {children}
+        <div className='conteiner'>
+            {children}
+        </div>
         </>
     )
 }

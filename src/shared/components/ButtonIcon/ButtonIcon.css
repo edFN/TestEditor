@@ -1,0 +1,41 @@
+
+.button-icon-ui{
+    display: block;
+    border-radius: 10px;
+    background: blue;
+    height:5rem;
+    width: 5rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.btn-icon-bg-blue{
+    background: #1313c9;
+}
+.btn-icon-bg-blue:hover{
+    background: #2e2eea;
+    transition: 0.2s;
+}
+
+.btn-icon-bg-green{
+    background-color: #178f06;
+}
+.btn-icon-bg-green:hover{
+    background-color: #2ac012;
+    transition: 0.2s;
+}
+
+.btn-icon-bg-red{
+    background: #9b1414;
+}
+.btn-icon-bg-red:hover{
+    background: #c52c2c;
+    transition: 0.2s;
+}
+
+.button-icon-ui .button-icon-image{
+    width: 2.2rem;
+    height: 2.2rem;
+    margin-left: 0.4rem;
+    margin-top: 0.2rem;
+}

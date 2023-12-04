@@ -1,0 +1,59 @@
+@import url("../../styles/_vars.css");
+
+
+.mylist-test-wrapper{
+    margin-top: 5rem;
+}
+
+.mylist-test-header-text{
+    font-family: var(--font-epilogue);
+    font-size: 3rem;
+    color: var(--black-text-color);
+    text-align: left;
+}
+
+.mylist-test-header{
+
+    border-bottom: 5px solid var(--black-text-color);
+    width: 35%;
+
+}
+
+
+.mylist-window-wrapper{
+    display: block;
+    background: #fcf7f7;
+    width: 100%;
+    margin-top: 2rem;
+    border-radius: 30px;
+    height: 75vh;
+
+
+    -webkit-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+    box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+
+}
+.mylist-window-filter-panel{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 10rem;
+    padding:3rem;
+    padding-left: 4.4rem;
+    gap: 52%;
+
+    -webkit-box-shadow: 6px 54px 27px -48px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 6px 54px 27px -48px rgba(34, 60, 80, 0.2);
+    box-shadow: 6px 54px 27px -48px rgba(34, 60, 80, 0.2);
+}
+
+.mylist-list-items{
+    max-height: 90%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    padding: 5rem;
+
+}
