@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 
 import "./FilterBar.css"
-import ChoiceSelect from "../../../../shared/components/ChoiceSelect/ChoiceSelect";
+import {ChoiceSelect} from "../../../../shared/components/ChoiceSelect/ChoiceSelect";
 import DateSelect from "../../../../shared/components/DateSelect/DateSelect";
 import TagSelect from "../../../../shared/components/TagSelect/TagSelect";
 import ButtonUI from '../../../../shared/components/Button/Button';

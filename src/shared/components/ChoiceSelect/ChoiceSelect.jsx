@@ -2,7 +2,7 @@ import React from 'react'
 
 import "./ChoiceSelect.css"
 
-const ChoiceSelect = ({fields, className, onChange, initialState=[]}) => {
+export const ChoiceSelect = ({fields, className, onChange, initialState=[]}) => {
 
     const formCheckBox = fields.map( (field) => (
         <label className="checkBox-label">
@@ -18,4 +18,12 @@ const ChoiceSelect = ({fields, className, onChange, initialState=[]}) => {
 
 }
 
-export default  ChoiceSelect;
+export const ToggleSelect = ({fields,onChange}) =>{
+    return(
+        <label className="checkBox-label">
+                <input className="checkBox-input" type="checkbox" name={fields.value}
+                    onChange={(e)=>onChange(e)}/>
+                {fields.display_name}
+        </label>
+    )
+}
