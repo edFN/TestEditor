@@ -1,6 +1,8 @@
 
 .text-field-ui{
     max-width: 100%;
+
+    
     /* padding:2rem; */
 }
 
@@ -8,13 +10,18 @@
 input[type='text'], input[type='password'] {
     width:100%;
     border: 0;
-    background-color: var(--white-text-color);
+    
     /* color: var(--grey-text-color); */
     /*font-size: 1.5rem;*/
 }
 
 .tf-background-white{
-    background: red;
+    background-color: var(--white-text-color);
+}
+
+.tf-background-darkwhite{
+    background-color: rgb(185, 183, 183);
+
 }
 
 .tf-field-smaller{
@@ -33,8 +40,22 @@ input[type="text"]:focus, input[type='password']:focus {
 
 .border-text-field-wrapper{
     padding: 1.2rem 1rem;
-    background-color: var(--white-text-color);
+    
     border-radius: 10px;
+}
+
+.border-tf-background-white{
+    background-color: var(--white-text-color);
+    
+}
+
+
+.tf-10rem{
+    width: 10rem;
+}
+
+.tf-15rem{
+    width: 15rem;
 }
 
 .tf-20rem{
@@ -55,4 +76,18 @@ input[type="text"]:focus, input[type='password']:focus {
 
 .tf-text-grey{
     color: var(--grey-text-color);
+}
+
+.tf-allow-shadow{
+    -webkit-box-shadow: -2px 15px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -2px 15px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: -2px 15px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.tf-label-field{
+    font-family: var(--font-ptsans);
+    color:grey
+}
+
+.tf-border-text-field{
+    height:6rem
 }

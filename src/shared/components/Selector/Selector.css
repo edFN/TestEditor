@@ -1,0 +1,19 @@
+
+.selector-ui-custom{
+    width: 25rem;
+    border-radius: 5px;
+    height: 4rem;
+    border: 0;
+    padding: 1rem;
+
+    -webkit-box-shadow: -2px 15px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -2px 15px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: -2px 15px 8px 0px rgba(34, 60, 80, 0.2);
+
+}
+
+.selector-label{
+    color:grey;
+    font-family: var(--font-ptsans);
+    outline: none;
+}

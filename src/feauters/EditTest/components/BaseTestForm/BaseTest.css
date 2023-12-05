@@ -1,0 +1,12 @@
+.editor-form-vertical-layout{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+
+.editor-form-horizontal-layout{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}

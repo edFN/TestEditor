@@ -8,6 +8,8 @@ import TestViewPage from "./feauters/SearchTestPanel/conteiner/TestViewPage";
 import NotFound from "./feauters/NotFound/conteiner/NotFound";
 import RegistrationForm from "./feauters/Registration/components/RegistrationForm/RegistrationForm";
 import MyListTestPage from "./feauters/MyListTest/conteiner/MyListTest";
+import EditTestPage from './feauters/EditTest/conteiner/EditTestPage';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
               <Route path='/' element={<TestViewPage/>}/>
               <Route path='/register' element={<RegistrationForm/>} />
               <Route path='/list' element={<MyListTestPage/>}/>
+              <Route path='/edit' element={<EditTestPage/>} />
               <Route path='*' element={<NotFound/>}/>
 
           </Routes>
