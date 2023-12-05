@@ -7,6 +7,7 @@ import ImageSelection from '../../../../shared/components/ImageSelector/ImageSel
 import MessageScoreForm from '../MessageScoreForm/MessageScoreForm';
 
 import './BaseTest.css'
+import TagSelect from "../../../../shared/components/TagSelect/TagSelect";
 
 const BaseTestForm = ({options})=>{
     return (
@@ -43,6 +44,7 @@ const BaseTestForm = ({options})=>{
                                     }
 
                                 ]} label="Показывать протокол тестирования" />
+                    <TagSelect/>
                                 
 
                 </div>

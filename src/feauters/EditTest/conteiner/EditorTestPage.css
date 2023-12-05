@@ -30,3 +30,13 @@
     -moz-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
     box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
 }
+
+.question-editor{
+    margin-top: 2rem;
+    background-color: #fcf7f7;
+
+    -webkit-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+    box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+
+}

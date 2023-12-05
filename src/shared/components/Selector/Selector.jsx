@@ -12,7 +12,7 @@ const Selector=({chooseOption = [], name="", onChange={}, label=null})=>{
         <div className="selector-ui">
         {label ?<label className="selector-label">{label}</label>: null}
         {label ? <br/> : null}
-        <select name={name} className="selector-ui-custom">
+        <select name={name} className="selector-ui-custom" onChange={onChange}>
             {chooseSelect}
         </select>
         </div>

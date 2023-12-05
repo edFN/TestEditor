@@ -15,6 +15,8 @@ const MyListTestPage = ()=>{
     const handleDelete = (id) => deleteService(parseInt(id), testList, setTestList)
 
 
+    const answers = {}
+
     const presentList = testList.map((item)=>(
         <ListTestItem id={item.id} title={item.title} handleDelete={handleDelete}/>
     ))

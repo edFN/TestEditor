@@ -84,10 +84,15 @@ input[type="text"]:focus, input[type='password']:focus {
     box-shadow: -2px 15px 8px 0px rgba(34, 60, 80, 0.2);
 }
 .tf-label-field{
+
     font-family: var(--font-ptsans);
     color:grey
 }
 
 .tf-border-text-field{
     height:6rem
+}
+
+.tf-border-black{
+    border:1px solid black;
 }
