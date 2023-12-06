@@ -8,21 +8,24 @@ import MessageScoreForm from '../MessageScoreForm/MessageScoreForm';
 
 import './BaseTest.css'
 import TagSelect from "../../../../shared/components/TagSelect/TagSelect";
+import useTestOptions from "../../../SearchTestPanel/hooks/useTestOptions";
 
-const BaseTestForm = ({onChange})=>{
+const BaseTestForm = ({onChange, handleImage})=>{
+
+    const testOption = useTestOptions()
+
+    if (!testOption) {
+        // Показать загрузочный индикатор или другое сообщение о загрузке
+        return <div>Loading...</div>;
+    }
+
     return (
         <div className='editor-base-form'>
             <div className="editor-form-horizontal-layout">
                 <div className="editor-form-vertical-layout">
                         <BorderTextFieldUI borderType={"tf-25rem tf-allow-shadow"} name="title" backgroundColor={"white"} label={"Название"} onChangeAction={(e)=>onChange(e)} />
-                        <Selector chooseOption={[
-                            {value:1,
-                            display_name:"One"
-                            },
-                            {value:1,
-                                display_name:"adfasda"
-                                },
-                        ]} label={"Категория"}/>
+                        <Selector chooseOption={testOption.type.choices} label={"Категория"} name={"type"} onChange={(e)=>onChange(e)}/>
+
                 </div>
                 <div className="editor-form-vertical-layout">          
                     <Selector chooseOption={[
@@ -43,14 +46,17 @@ const BaseTestForm = ({onChange})=>{
                                     display_name:"Показывать"
                                     }
 
-                                ]} label="Показывать протокол тестирования" name="record_statistic" onChange={(e)=>onChange(e)}/>
+                                ]} label="Показывать протокол тестирования"  onChange={(e)=>onChange(e)} name={"is_record_statistic"}/>
                     <TagSelect/>
+
                                 
 
                 </div>
-                <ImageSelection/>
-        </div>
+                <ImageSelection name={"image"} onChange={handleImage} />
 
+        </div>
+            <label>Описание</label><br/>
+            <textarea className='question-textarea' name={'description'} onChange={(e)=>onChange(e)}></textarea>
         <MessageScoreForm onChange={(e)=>{}}/>                        
 
         </div>

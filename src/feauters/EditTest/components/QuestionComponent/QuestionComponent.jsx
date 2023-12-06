@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 
 import "./QuestionComponent.css"
@@ -7,16 +7,16 @@ import {BorderTextFieldUI} from "../../../../shared/components/TextFieldUI/TextF
 
 
 const TextAnswerText = ({onChange})=>{
-    const [answerText, setAnswerText] = useState({
-        is_right:true,
-        answer_text:""
-    })
+    const [answerText, setAnswerText] = useState([{
+        is_right: true,
+        answer_text: ""
+    }])
 
     const handleTextChanged= (e)=>{
-        setAnswerText({
+        setAnswerText([{
             is_right: true,
             answer_text: e.target.value
-        })
+        }])
         onChange(answerText)
     }
     return (
@@ -130,9 +130,11 @@ const QuestionComponent = ({index, handleQuestion, initial})=>{
 
     const handleAnswers = (answers)=>{
         setData({...data, answers: answers})
+        handleQuestion(data,index)
         console.log(data)
     }
 
+    useEffect(()=>console.log("Question",data), [data])
 
     return (
         <div className="question-wrapper">

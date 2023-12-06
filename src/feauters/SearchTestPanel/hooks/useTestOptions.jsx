@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 const useTestOptions = () => {
 
-    const [testOption, setTestOption] = useState([])
+    const [testOption, setTestOption] = useState(null)
 
     const API_BASE_URL = "http://localhost:8000/test/editor";
 

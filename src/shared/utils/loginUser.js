@@ -31,8 +31,7 @@ async function loginUser(email, password) {
     }catch(error){
         console.error(`Authorization error ${error.message}`)
     }
-
-
 }
+
 
 export {isLoggedIn, loginUser}
