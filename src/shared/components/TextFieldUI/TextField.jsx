@@ -6,7 +6,7 @@ import "./TextField.css"
 
 export const TextFieldUIBase = ({fieldName, onChangeAction ,type , placeHolder = "", name="", typeForm="text", backgroundColor='white'}) => {
     return (
-        <input type={typeForm} className={`text-field-ui ${type} tf-background-${backgroundColor}`} name={fieldName} placeHolder={placeHolder} onChange={(e)=>onChangeAction(e)} name={name}/>
+        <input type={typeForm} className={`text-field-ui ${type} tf-background-${backgroundColor}`} placeHolder={placeHolder} onChange={(e)=>onChangeAction(e)} name={name}/>
     )
 }
 

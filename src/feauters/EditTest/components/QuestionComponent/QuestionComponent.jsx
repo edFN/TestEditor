@@ -2,11 +2,11 @@ import React, {useState} from "react";
 
 
 import "./QuestionComponent.css"
-import Selector from "../../../../shared/components/Selector/Selector";
+import {Selector} from "../../../../shared/components/Selector/Selector";
 import {BorderTextFieldUI} from "../../../../shared/components/TextFieldUI/TextField";
 
 
-const TextAnswerText = ()=>{
+const TextAnswerText = ({onChange})=>{
     const [answerText, setAnswerText] = useState({
         is_right:true,
         answer_text:""
@@ -17,6 +17,7 @@ const TextAnswerText = ()=>{
             is_right: true,
             answer_text: e.target.value
         })
+        onChange(answerText)
     }
     return (
         <>
@@ -28,7 +29,7 @@ const TextAnswerText = ()=>{
     )
 }
 
-const OneVariantAnswer = ()=>{
+const OneVariantAnswer = ({onChange})=>{
     const [answers,setAnswers] = useState([])
 
     console.log("Answers", answers)
@@ -37,12 +38,14 @@ const OneVariantAnswer = ()=>{
         const updatedAnswer = [...answers]
         updatedAnswer[index].is_right = e.target.checked
         setAnswers(updatedAnswer)
+        onChange(answers)
     }
 
     const handleChangeText = (e,index)=>{
         const updatedAnswer = [...answers]
         updatedAnswer[index].answer_text = e.target.value
         setAnswers(updatedAnswer)
+        onChange(answers)
     }
 
     const items = answers.map((item, index)=>(
@@ -57,9 +60,8 @@ const OneVariantAnswer = ()=>{
             "answer_text": "",
             "is_right": false
         }])
-
+        onChange(answers)
         console.log(answers)
-
     }
 
     return (
@@ -67,13 +69,14 @@ const OneVariantAnswer = ()=>{
         <div className={"one-variant-answer-div"}>
             {items}
         </div>
-        <label onClick={handleClickLabel}>Добавить вариант ответа</label></>
+        <label onClick={handleClickLabel}>Добавить вариант ответа</label>
+        </>
     )
 }
 
 
 
-const MultipleVariant = ()=>{
+const MultipleVariant = ({onChange})=>{
     const [answers,setAnswers] = useState([])
 
     console.log("Answers", answers)
@@ -82,12 +85,14 @@ const MultipleVariant = ()=>{
         const updatedAnswer = [...answers]
         updatedAnswer[index].is_right = e.target.checked
         setAnswers(updatedAnswer)
+        onChange(answers)
     }
 
     const handleChangeText = (e,index)=>{
         const updatedAnswer = [...answers]
         updatedAnswer[index].answer_text = e.target.value
         setAnswers(updatedAnswer)
+        onChange(answers)
     }
 
     const items = answers.map((item, index)=>(
@@ -102,7 +107,7 @@ const MultipleVariant = ()=>{
             "answer_text": "",
             "is_right": false
         }])
-
+        onChange(answers)
         console.log(answers)
     }
     return (
@@ -123,11 +128,17 @@ const QuestionComponent = ({index, handleQuestion, initial})=>{
         handleQuestion(data,index)
     }
 
+    const handleAnswers = (answers)=>{
+        setData({...data, answers: answers})
+        console.log(data)
+    }
+
+
     return (
         <div className="question-wrapper">
             <div className={"horizontal-layout-question"}>
                 <div className={"header-question-number"}>
-                    <h2>Вопрос №{index}</h2>
+                    <h2>Вопрос №{index+1}</h2>
                 </div>
             </div>
 
@@ -155,9 +166,9 @@ const QuestionComponent = ({index, handleQuestion, initial})=>{
                 </div>
             </div>
 
-            {data.type == 1 && <OneVariantAnswer />}
-            {data.type == 2 && <MultipleVariant />}
-            {data.type == 3 && <TextAnswerText/>}
+            {data.type == 1 && <OneVariantAnswer  onChange={handleAnswers} />}
+            {data.type == 2 && <MultipleVariant  onChange={handleAnswers}/>}
+            {data.type == 3 && <TextAnswerText onChange={handleAnswers}/>}
 
 
         </div>

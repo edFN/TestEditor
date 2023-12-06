@@ -21,7 +21,7 @@ const EditTestPage = ()=> {
         setTestForm({...testForm, questions: [...testForm.questions, {
                 answers: [],
                 question: "",
-                type: null,
+                type: 1,
                 has_diff_point: false,
             }]
         })
@@ -32,15 +32,20 @@ const EditTestPage = ()=> {
         updateQuestion[index] = data
         setTestForm({...testForm, questions: updateQuestion})
         console.log("TestForm", testForm)
+    }
 
+    const handleChangeTest = (e) =>{
+        setTestForm({...testForm, [e.target.name]: e.target.value})
+        console.log(testForm)
     }
 
     const questionList = testForm.questions.map((item,index)=>(
         <div className="question-editor">
-            <QuestionComponent index={index+1} handleQuestion={handleChangeQuestion} initial={item}  />
+            <QuestionComponent index={index} handleQuestion={handleChangeQuestion} initial={item}  />
         </div>
     ))
-
+    
+    
 
 
     return (
@@ -52,7 +57,7 @@ const EditTestPage = ()=> {
             </div>
 
             <div className="editor-window-wrapper">
-                <BaseTestForm/>
+                <BaseTestForm onChange={handleChangeTest}/>
             </div>
             <div className={'question-editor-list'}>
                 {questionList}
