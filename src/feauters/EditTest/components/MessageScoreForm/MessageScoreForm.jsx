@@ -4,9 +4,15 @@ import {ToggleSelect} from "../../../../shared/components/ChoiceSelect/ChoiceSel
 
 import "./MessageScoreForm.css"
 
-const MessageScoreForm = ({onChange})=>{
+const MessageScoreForm = ({onChange, handleMessage, initial=null})=>{
 
-    const [value, setValue] = useState([])
+    const [value, setValue] = useState(()=>{
+        if(initial){
+            return initial
+        }
+        return []
+    })
+
 
 
     const handleClickLabel = (e)=>{
@@ -18,27 +24,32 @@ const MessageScoreForm = ({onChange})=>{
 
     const handleChangeScore = (e, index) => {
             const updatedAnswer = [...value]
+
+            console.log("Updated answer", updatedAnswer)
+
             updatedAnswer[index].points = e.target.value
             setValue(updatedAnswer)
+            handleMessage(updatedAnswer,index)
     }
 
     const handleChangeText= (e, index)=> {
         const updatedAnswer = [...value]
         updatedAnswer[index].text = e.target.value
         setValue(updatedAnswer)
+        handleMessage(updatedAnswer, index)
     }
 
 
     const entryTable = value.map((item,index)=>(
         <div className="table-entry-item">
             <input type="number" value={item.points} className="score-field" onChange={(e)=>handleChangeScore(e,index)}/>
-            <textarea style={{borderStyle:`1 solid black`}} className='question-textarea' value={item.message} onChange={(e)=>handleChangeText(e,index)}></textarea>
+            <textarea style={{borderStyle:`1 solid black`}} className='question-textarea' value={item.text} onChange={(e)=>handleChangeText(e,index)}></textarea>
         </div>
     ))
 
     return (
         <div className="message-score-wrapper">
-            <ToggleSelect onChange={onChange} fields={{value:true, display_name: "Разное сообщение"}}/>
+            {/*<ToggleSelect onChange={onChange} name="is_different_msg" fields={{value:true, display_name: "Разное сообщение"}}/>*/}
 
             <div className="window-score-wrapper">
                 <div className="table-header-score">

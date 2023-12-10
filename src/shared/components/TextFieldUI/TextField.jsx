@@ -4,7 +4,14 @@ import React, { useState } from 'react';
 
 import "./TextField.css"
 
-export const TextFieldUIBase = ({fieldName, onChangeAction ,type , placeHolder = "", name="", typeForm="text", backgroundColor='white'}) => {
+export const TextFieldUIBase = ({fieldName, onChangeAction ,type , placeHolder = "", name="", typeForm="text", backgroundColor='white',
+                                initial=null}) => {
+
+    if(initial !== null){
+        return <input type={typeForm} className={`text-field-ui ${type} tf-background-${backgroundColor}`} placeHolder={placeHolder} onChange={(e)=>onChangeAction(e)}
+                      value = {initial} name={name}/>
+    }
+
     return (
         <input type={typeForm} className={`text-field-ui ${type} tf-background-${backgroundColor}`} placeHolder={placeHolder} onChange={(e)=>onChangeAction(e)} name={name}/>
     )

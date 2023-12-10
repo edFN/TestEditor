@@ -11,18 +11,15 @@ import ErrorAlert from "../../../../shared/components/ErrorAlert/ErrorAlert";
 import {isLoggedIn, loginUser} from "../../../../shared/utils/loginUser";
 
 
-
 const RegistrationForm = () => {
     const registerFormData = useFormOptions();
     console.log(registerFormData)
 
     const [alertState, setAlertState] = useState(null);
 
-    useEffect(()=>{
-        if (isLoggedIn()){
-            window.location.href = "/";
-        }
-    },[])
+    if(isLoggedIn()){
+        window.location ='/'
+    }
 
     const [formData, setFormData] = useState({
         email: '',
@@ -87,12 +84,8 @@ const RegistrationForm = () => {
     }
 
 
-    if(isLoggedIn()){
-        window.location.href='/'
-    }
-    else {
 
-        return (
+    return (
 
             <div className="register-block">
                 <div className="register-block-title">
@@ -151,7 +144,7 @@ const RegistrationForm = () => {
             </div>
 
         )
-    }
+
 
 }
 

@@ -5,33 +5,38 @@ import {isLoggedIn} from "../../utils/loginUser";
 
 const PageLayout = ({children}) => {
 
-    const  [user,setUser] = useState(null)
+    const [user, setUser] = useState(null)
 
-    useEffect(()=>{
-        console.log(localStorage.getItem("access_token"))
-        if(isLoggedIn()) {
+
+    useEffect(() => {
+
+        const setLoggedUser = async () => {
+            const isLogged = await isLoggedIn()
+            console.log("check is is logged", isLogged)
+
+            if (isLogged === false) return
+
             fetch("http://localhost:8000/user/1", {
-                method:"GET",
+                method: "GET",
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem("access_token")}`
                 }
-            }).then(response => response.json()).then((data)=>{
+            }).then(response => response.json()).then((data) => {
                 console.log(data)
-
-
-
-
                 setUser(data)
             }).catch((error) => console.error())
         }
-    },[])
+
+        setLoggedUser()
+
+    }, [])
 
     return (
         <>
-        <NavBar user={user}/>
-        <div className='conteiner'>
-            {children}
-        </div>
+            <NavBar user={user}/>
+            <div className='conteiner'>
+                {children}
+            </div>
         </>
     )
 }

@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react"
 
 
-const useTestList = () => {
+const useTestList = (is_my=false) => {
 
     const [testList, setTestList] = useState([])
 
 
-    const API_BASE_URL = "http://localhost:8000/test/editor";
+
+    let API_BASE_URL = "http://localhost:8000/test/editor";
+
+    if(is_my){
+        API_BASE_URL = API_BASE_URL + `?author=${localStorage.getItem('user_id')}`
+    }
 
     useEffect(()=>{
         fetch(API_BASE_URL, {

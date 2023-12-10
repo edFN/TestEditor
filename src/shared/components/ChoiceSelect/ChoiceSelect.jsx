@@ -18,10 +18,10 @@ export const ChoiceSelect = ({fields, className, onChange, initialState=[]}) => 
 
 }
 
-export const ToggleSelect = ({fields,onChange}) =>{
+export const ToggleSelect = ({fields,onChange, name}) =>{
     return(
         <label className="checkBox-label">
-                <input className="checkBox-input" type="checkbox" name={fields.value}
+                <input className="checkBox-input" type="checkbox" name={name}
                     onChange={(e)=>onChange(e)}/>
                 {fields.display_name}
         </label>

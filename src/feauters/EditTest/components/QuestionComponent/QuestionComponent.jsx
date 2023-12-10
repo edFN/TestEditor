@@ -6,31 +6,49 @@ import {Selector} from "../../../../shared/components/Selector/Selector";
 import {BorderTextFieldUI} from "../../../../shared/components/TextFieldUI/TextField";
 
 
-const TextAnswerText = ({onChange})=>{
-    const [answerText, setAnswerText] = useState([{
-        is_right: true,
-        answer_text: ""
-    }])
+const TextAnswerText = ({onChange, initial=null})=>{
+    const [answerText, setAnswerText] = useState(()=>{
 
-    const handleTextChanged= (e)=>{
-        setAnswerText([{
+        if(initial){
+            return [initial[0]]
+        }
+
+        return [{
             is_right: true,
-            answer_text: e.target.value
-        }])
-        onChange(answerText)
-    }
+            answer_text: ""
+        }]
+    })
+
+    const handleTextChanged = (e) => {
+        setAnswerText((prevAnswerText) => {
+            const newAnswerText = [
+                {
+                    is_right: true,
+                    answer_text: e.target.value,
+                },
+            ];
+            onChange(newAnswerText);
+            return newAnswerText;
+        });
+    };
     return (
         <>
             <div className={"one-variant-answer-div"}>
-                <BorderTextFieldUI borderType={"tf-30rem tf-border-black"} backgroundColor={"white"}  onChangeAction={handleTextChanged} label={"Ответ"} />
+                <BorderTextFieldUI borderType={"tf-30rem tf-border-black"} backgroundColor={"white"}  onChangeAction={handleTextChanged} label={"Ответ"} initial={answerText[0].answer_text} />
             </div>
         </>
 
     )
 }
 
-const OneVariantAnswer = ({onChange})=>{
-    const [answers,setAnswers] = useState([])
+const OneVariantAnswer = ({onChange, initial=null})=>{
+    const [answers,setAnswers] = useState(()=>{
+        if(initial){
+            console.log(initial)
+            return initial
+        }
+        return []
+    })
 
     console.log("Answers", answers)
 
@@ -51,7 +69,7 @@ const OneVariantAnswer = ({onChange})=>{
     const items = answers.map((item, index)=>(
         <div className="one-variant-choose">
         <input type='radio' value={item.is_right} onChange={(e)=>handleChangeRadio(e,index)}/>
-        <BorderTextFieldUI borderType={"tf-15rem tf-border-black"} backgroundColor={"white"}  onChangeAction={(e)=>{handleChangeText(e,index)}} />
+        <BorderTextFieldUI borderType={"tf-15rem tf-border-black"} backgroundColor={"white"}  onChangeAction={(e)=>{handleChangeText(e,index)}} initial={item.answer_text} />
         </div>
     ))
 
@@ -76,9 +94,13 @@ const OneVariantAnswer = ({onChange})=>{
 
 
 
-const MultipleVariant = ({onChange})=>{
-    const [answers,setAnswers] = useState([])
-
+const MultipleVariant = ({onChange, initial=null})=>{
+    const [answers,setAnswers] = useState(()=>{
+        if(initial){
+            return initial
+        }
+        return []
+    })
     console.log("Answers", answers)
 
     const handleChangeRadio = (e, index)=>{
@@ -98,7 +120,8 @@ const MultipleVariant = ({onChange})=>{
     const items = answers.map((item, index)=>(
         <div className="one-variant-choose">
             <input type='checkbox' value={item.is_right} onChange={(e)=>handleChangeRadio(e,index)}/>
-            <BorderTextFieldUI borderType={"tf-15rem tf-border-black"} backgroundColor={"white"}  onChangeAction={(e)=>{handleChangeText(e,index)}} />
+            <BorderTextFieldUI borderType={"tf-15rem tf-border-black"} backgroundColor={"white"}  onChangeAction={(e)=>{handleChangeText(e,index)}}
+                               initial={item.answer_text}/>
         </div>
     ))
 
@@ -120,19 +143,30 @@ const MultipleVariant = ({onChange})=>{
 }
 
 
-const QuestionComponent = ({index, handleQuestion, initial})=>{
-    const [data, setData] = useState(initial)
+const QuestionComponent = ({index, handleQuestion, initial=null})=>{
+    const [data, setData] = useState(()=>{
+        if(initial){
+            return initial
+        }
+        return []
+    })
 
-    const handleQuestionChange = (e)=>{
-        setData({...data, [e.target.name]: e.target.value})
-        handleQuestion(data,index)
-    }
+    const handleQuestionChange = (e) => {
+        setData(prevData => {
+            const newData = { ...prevData, [e.target.name]: e.target.value };
+            handleQuestion(newData, index);
+            return newData;
+        });
+    };
 
-    const handleAnswers = (answers)=>{
-        setData({...data, answers: answers})
-        handleQuestion(data,index)
-        console.log(data)
-    }
+    const handleAnswers = (answers) => {
+        setData(prevData => {
+            const newData = { ...prevData, answers: answers };
+            handleQuestion(newData, index);
+            return newData;
+        });
+        console.log(data);
+    };
 
     useEffect(()=>console.log("Question",data), [data])
 
@@ -159,19 +193,18 @@ const QuestionComponent = ({index, handleQuestion, initial})=>{
                             display_name: "Текст",
                             value: 3
                         }
-                    ]} label="Тип вопроса" onChange={(e)=>handleQuestionChange(e)} name={'type'}/>
+                    ]} label="Тип вопроса" onChange={(e)=>handleQuestionChange(e)} name={'type'} initial={data.type}/>
 
                 </div>
                 <div className="question-field">
                     <label className="tf-label-field">Текст вопроса</label><br/>
-                    <textarea className='question-textarea' name={'question'} onChange={handleQuestionChange}></textarea>
+                    <textarea className='question-textarea' name={'question'} onChange={handleQuestionChange} value={data.question}></textarea>
                 </div>
             </div>
 
-            {data.type == 1 && <OneVariantAnswer  onChange={handleAnswers} />}
-            {data.type == 2 && <MultipleVariant  onChange={handleAnswers}/>}
-            {data.type == 3 && <TextAnswerText onChange={handleAnswers}/>}
-
+            {data.type == 1 && <OneVariantAnswer initial={initial.answers}  onChange={handleAnswers} />}
+            {data.type == 2 && <MultipleVariant  initial={initial.answers} onChange={handleAnswers}/>}
+            {data.type == 3 && <TextAnswerText initial={initial.answers} onChange={handleAnswers}/>}
 
         </div>
     )

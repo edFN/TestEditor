@@ -2,17 +2,19 @@ import React from "react";
 
 import './Selector.css'
 
-export const Selector=({chooseOption = [], name="", onChange={}, label=null})=>{
+export const Selector=({chooseOption = [], name="", onChange={}, label=null, initial=null})=>{
+
 
     const chooseSelect = chooseOption.map(item => (
-        <option value={item.value}>{item.display_name}</option>
+        <option value={item.value} >{item.display_name}</option>
     ))
 
     return (
         <div className="selector-ui">
         {label ?<label className="selector-label">{label}</label>: null}
         {label ? <br/> : null}
-        <select name={name} className="selector-ui-custom" onChange={onChange}>
+
+        <select name={name} className="selector-ui-custom" onChange={onChange} value={initial || ""}>
             {chooseSelect}
         </select>
         </div>

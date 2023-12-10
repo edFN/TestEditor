@@ -7,19 +7,41 @@ import SearchPanelList from "../components/SearchPanelList/SearchPanelList";
 import ButtonUI from "../../../shared/components/Button/Button";
 import useTestList from "../../SearchTestPanel/hooks/useTestList";
 import deleteService from "../hooks/deleteService";
+import {isLoggedIn} from "../../../shared/utils/loginUser";
 
 const MyListTestPage = ()=>{
 
-    const [testList, setTestList] = useTestList();
+    if(isLoggedIn() === false){
+        window.location = '/login'
+    }
+
+    const [testList, setTestList] = useTestList(true);
+
+    if(!testList){
+        return <h1>Loading...</h1>
+    }
 
     const handleDelete = (id) => deleteService(parseInt(id), testList, setTestList)
-
 
     const answers = {}
 
     const presentList = testList.map((item)=>(
         <ListTestItem id={item.id} title={item.title} handleDelete={handleDelete}/>
     ))
+
+
+    const searchHandle = (e) => {
+        fetch(`http://localhost:8000/test/editor/?author=${localStorage.getItem("user_id")}&search=${e.target.value}`, {
+            method: 'GET',
+        }).then(response => response.json()).then(
+            (data) => {
+                console.log("Tests", data)
+                setTestList(data)
+            }
+        ).catch((err) => console.log(err))
+    }
+
+    console.log(testList)
 
     return (
         <div className='mylist-test-wrapper'>
@@ -29,14 +51,13 @@ const MyListTestPage = ()=>{
                 </div>
             </div>
 
-            <div className='mylist-window-wrapper'>
+                <div className='mylist-window-wrapper'>
                 <div className='mylist-window-filter-panel'>
-                    <SearchPanelList/>
-                    <ButtonUI text={"Добавить новый"} type={"green button-height-3rem"}/>
+                    <SearchPanelList onChange={searchHandle}/>
+                    <ButtonUI text={"Добавить новый"} type={"green button-height-3rem"} onClickEvent={(e)=>window.location = '/edit'}/>
                 </div>
                 <div className='mylist-list-items'>
-                    {presentList.length ? {presentList}: <h1>Ничего не найдено</h1>}
-
+                    {presentList}
                 </div>
             </div>
         </div>

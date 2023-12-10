@@ -9,6 +9,9 @@ import NotFound from "./feauters/NotFound/conteiner/NotFound";
 import RegistrationForm from "./feauters/Registration/components/RegistrationForm/RegistrationForm";
 import MyListTestPage from "./feauters/MyListTest/conteiner/MyListTest";
 import EditTestPage from './feauters/EditTest/conteiner/EditTestPage';
+import LoginPage from "./feauters/LoginPage/conteiner/LoginPage";
+import UpdateTestPage from "./feauters/UpdateTest/conteiner/UpdateTestPage";
+import TestPage from "./feauters/Test/conteiner/TestPage";
 
 
 function App() {
@@ -19,6 +22,9 @@ function App() {
               <Route path='/register' element={<RegistrationForm/>} />
               <Route path='/list' element={<MyListTestPage/>}/>
               <Route path='/edit' element={<EditTestPage/>} />
+              <Route path='/edit/:id' element={<UpdateTestPage/>}/>
+              <Route path='/login' element={<LoginPage/>}/>
+              <Route path='/test/:id' element={<TestPage/>}/>
               <Route path='*' element={<NotFound/>}/>
 
           </Routes>

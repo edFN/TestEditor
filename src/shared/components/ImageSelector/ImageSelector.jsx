@@ -4,8 +4,13 @@ import "./ImageSelector.css"
 
 import EmptyImage from "../../assets/empty.jpg" 
 
-const ImageSelection = ({onChange, name}) => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const ImageSelection = ({onChange, name, initial}) => {
+  const [selectedImage, setSelectedImage] = useState(()=>{
+       if(initial){
+            return initial
+       }
+       return null
+  });
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];

@@ -1,8 +1,73 @@
 import registrationForm from "../../feauters/Registration/components/RegistrationForm/RegistrationForm";
 
+import {jwtDecode} from  'jwt-decode'
 
-function isLoggedIn(){
-    return localStorage.hasOwnProperty("access_token")
+async function tryRefresh(){
+    if(!localStorage.hasOwnProperty("refresh"))
+        return false;
+
+    fetch("http://localhost:8000/user/refresh",{
+        method: "POST",
+        body: JSON.stringify({
+            refresh: localStorage.getItem("refresh")
+        })
+    }).then(async (response) => {
+        if(response.status === 401){
+            return false;
+        }
+
+        let data = await response.json()
+
+        console.log(data)
+
+        localStorage.setItem("access_token", data.access_token)
+
+        console.log("We are ok")
+
+        return true
+    }).catch((err)=>{
+        console.log("Error", err)
+        return false;
+    })
+
+}
+
+
+async function isLoggedIn(){
+
+    console.log("We are in")
+
+    if(!localStorage.hasOwnProperty("access_token"))
+        return false
+
+
+    let access_token = localStorage.getItem("access_token")
+
+
+    console.log("Access", access_token)
+
+    await fetch('http://localhost:8000/user/verify',{
+        method: "POST",
+
+        headers:{
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+
+        body: JSON.stringify({
+            token: access_token
+        })
+    }).then(async (response) => {
+        if(response.status !== 401){
+            console.log("ALL OK")
+            return true
+        }
+
+        return await tryRefresh()
+    }).catch((err) => {
+        return false;
+    })
+
 }
 
 
@@ -24,12 +89,19 @@ async function loginUser(email, password) {
 
         const user = await response.json()
 
-        console.log("User", user)
+        const user_data = jwtDecode(user.access)
+
+        console.log("User", user_data)
 
         localStorage.setItem("access_token", user.access)
         localStorage.setItem("refresh_token", user.refresh)
+        localStorage.setItem("user_id", user_data.user_id)
+
+        return true;
+
     }catch(error){
         console.error(`Authorization error ${error.message}`)
+        return false;
     }
 }
 

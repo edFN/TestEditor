@@ -5,8 +5,12 @@ import BaseTestForm from "../components/BaseTestForm/BaseTest";
 import './EditorTestPage.css'
 import QuestionComponent from "../components/QuestionComponent/QuestionComponent";
 import ButtonUI from "../../../shared/components/Button/Button";
+import SuccessAlert from "../../../shared/components/SuccessAlert/SuccessAlert";
+import ErrorAlert from "../../../shared/components/ErrorAlert/ErrorAlert";
+import {isLoggedIn} from "../../../shared/utils/loginUser";
 
-const EditTestPage = ()=> {
+const EditTestPage = ({id = null})=> {
+
 
     const [testForm, setTestForm] = useState({
         type:1,
@@ -18,8 +22,12 @@ const EditTestPage = ()=> {
         is_private: false,
         is_record_statistic: false,
         hashtags: [],
-        author:1
+        author:localStorage.getItem("user_id"),
+        message_results: []
     })
+
+
+    const [alertState, setAlertState] = useState(null)
 
     useEffect(()=>{
         console.log(testForm)
@@ -35,13 +43,29 @@ const EditTestPage = ()=> {
         })
     }
 
+    if(isLoggedIn() === false){
+        window.location = '/login'
+    }
+
     const handleFormSend = (e)=>{
         fetch('http://localhost:8000/test/editor/', {
             headers: new Headers({'content-type': 'application/json'}),
             method: 'POST',
             body: JSON.stringify(testForm)
-        }).then(response=>console.log("Status",response.status))
+        }).then((response)=>{
+          if(response.status === 201){
+              setAlertState(true)
+              setTimeout(()=>window.location='/list',1200)
+          }else {
+              setAlertState(false)
+          }
+        })
     }
+
+    const handleMessageChange = (data,index)=>{
+        setTestForm({...testForm, message_results: data})
+    }
+
 
     const handleChangeQuestion = (data,index)=>{
         const updateQuestion = [...testForm.questions]
@@ -64,11 +88,10 @@ const EditTestPage = ()=> {
             <QuestionComponent index={index} handleQuestion={handleChangeQuestion} initial={item}  />
         </div>
     ))
-    
-    
 
 
     return (
+        <>
         <div className="editpage-wrapper">
             <div className="editor-page-header">
                 <span className="text-editor-page">
@@ -77,7 +100,7 @@ const EditTestPage = ()=> {
             </div>
 
             <div className="editor-window-wrapper">
-                <BaseTestForm onChange={handleChangeTest} handleImage={handleImage}/>
+                <BaseTestForm onChange={handleChangeTest} handleImage={handleImage}  changeMessage={handleMessageChange} initial={testForm}/>
             </div>
             <div className={'question-editor-list'}>
                 {questionList}
@@ -87,6 +110,13 @@ const EditTestPage = ()=> {
                 <ButtonUI type={'green'} text={"Сохранить"} onClickEvent={handleFormSend}/>
             </div>
         </div>
+            {alertState === true ?
+                <SuccessAlert message="Вы успешно создали тест. Вы будете переведены на страницу с вашими тестами"/> :
+                alertState === false ? <ErrorAlert message="Были допущены ошибки во время создания теста"/> : null}
+
+        </>
+
+
     )
 }
 

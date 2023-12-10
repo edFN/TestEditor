@@ -10,13 +10,17 @@ import EditItem from "../../assets/edit.svg"
 
 const ListTestItem = ({id,title, handleDelete})=>{
 
+    const handleEdit = () =>{
+        window.location = `/edit/${id}`
+    }
+
     return (
         <div className='list-test-item'>
             <div className="list-item-text">
                 <span>{title}</span>
             </div>
             <div className="list-block-buttons">
-                <ButtonIcon icon={EditItem} type={"btn-icon-bg-blue"}/>
+                <ButtonIcon icon={EditItem} handleClick={(e)=>handleEdit()} type={"btn-icon-bg-blue"}/>
                 <ButtonIcon icon={DeleteItem} type={"btn-icon-bg-red"} handleClick={(e)=>handleDelete(id)}/>
             </div>
         </div>

@@ -2,15 +2,28 @@ import React from 'react'
 
 import "./NavBar.css"
 
-import AvatarImg from "../../assets/avatar.png";
+import AvatarImg from "./avatar.png";
+import {Link} from "react-router-dom";
 
 const NavBar = ({user}) => {
 
     const navigationItems = [
-        "Главное", "Руководство", "Редактор тестов"
+        {
+            name: "Главное",
+            url: '/'
+        },
+        {
+            name: "Руководство",
+            url: '/'
+        },
+        {
+            name: 'Мои тесты',
+            url: '/list'
+        }
+
     ]
 
-    const listItems = navigationItems.map(item => (<li><a href="#">{item}</a></li>))
+    const listItems = navigationItems.map(item => (<li><Link to={item.url}>{item.name}</Link></li>))
 
     return (
         <header>
@@ -20,7 +33,7 @@ const NavBar = ({user}) => {
                         {listItems}
                     </ul>
                     <div className="user-avatar">
-                        <img src={user === null ? {AvatarImg}: user.avatar}/>
+                        <img src={AvatarImg}/>
                         {user !== null ? <span>{`${user.last_name} ${user.first_name} ${user.patronymic}`}</span>: <span>Гость</span>}
                     </div>
 

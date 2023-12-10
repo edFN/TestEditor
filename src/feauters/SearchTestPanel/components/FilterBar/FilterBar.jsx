@@ -10,10 +10,7 @@ import useLocalStorage from "../../../../shared/hooks/useLocalStorage";
 
 const FilterBar = ({visibleFunction, testOption,setFilterData}) => {
 
-
     const category = testOption.type.choices
-
-    console.log("Category", category)
 
     const [filterSets, setFilter] = useLocalStorage('filterSearch',{
         type: [],

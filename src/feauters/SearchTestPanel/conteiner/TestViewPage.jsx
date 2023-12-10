@@ -42,7 +42,7 @@ const TestViewPage = () => {
 
         fetch("http://localhost:8000/test/editor?" + data, {
             method: 'GET',
-        }).then(response => response.json()).then(data => setTestList(data)).catch(error=>console.log(error))
+        }).then(response => response.json()).then(data => setTestList(data)).catch(error=>console.log("Error",error))
 
 
     }, [searchText, filterData])
