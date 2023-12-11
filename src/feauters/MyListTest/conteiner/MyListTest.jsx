@@ -17,13 +17,15 @@ const MyListTestPage = ()=>{
 
     const [testList, setTestList] = useTestList(true);
 
+    console.log(testList)
+
+
     if(!testList){
         return <h1>Loading...</h1>
     }
 
     const handleDelete = (id) => deleteService(parseInt(id), testList, setTestList)
 
-    const answers = {}
 
     const presentList = testList.map((item)=>(
         <ListTestItem id={item.id} title={item.title} handleDelete={handleDelete}/>

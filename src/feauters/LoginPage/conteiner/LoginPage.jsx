@@ -14,7 +14,7 @@ const LoginPage = () => {
         password: ''
     })
 
-    if(isLoggedIn()){
+    if(isLoggedIn() === true){
        window.location = '/'
     }
 

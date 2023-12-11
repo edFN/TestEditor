@@ -10,7 +10,8 @@ const useTestList = (is_my=false) => {
     let API_BASE_URL = "http://localhost:8000/test/editor";
 
     if(is_my){
-        API_BASE_URL = API_BASE_URL + `?author=${localStorage.getItem('user_id')}`
+        if(!localStorage.getItem("user_id") === null)
+            API_BASE_URL = API_BASE_URL + `?author=${localStorage.getItem('user_id')}`
     }
 
     useEffect(()=>{

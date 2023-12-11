@@ -44,4 +44,17 @@
     margin-top: 2rem;
     gap:2rem;
     padding: 2rem;
+
+}
+
+.test-buttons{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    float: right;
+    flex-direction: row-reverse;
+    gap:2rem;
+    margin-top: 5rem;
+    position: relative;
+    bottom: 0;
 }

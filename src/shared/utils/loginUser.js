@@ -33,41 +33,38 @@ async function tryRefresh(){
 }
 
 
-async function isLoggedIn(){
+function isLoggedIn() {
+    return new Promise((resolve, reject) => {
+        console.log("We are in");
 
-    console.log("We are in")
-
-    if(!localStorage.hasOwnProperty("access_token"))
-        return false
-
-
-    let access_token = localStorage.getItem("access_token")
-
-
-    console.log("Access", access_token)
-
-    await fetch('http://localhost:8000/user/verify',{
-        method: "POST",
-
-        headers:{
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-
-        body: JSON.stringify({
-            token: access_token
-        })
-    }).then(async (response) => {
-        if(response.status !== 401){
-            console.log("ALL OK")
-            return true
+        if (!localStorage.hasOwnProperty("access_token")) {
+            resolve(false);
         }
 
-        return await tryRefresh()
-    }).catch((err) => {
-        return false;
-    })
+        let access_token = localStorage.getItem("access_token");
 
+        console.log("Access", access_token);
+
+        fetch('http://localhost:8000/user/verify', {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                token: access_token
+            })
+        }).then((response) => {
+            if (response.status !== 401) {
+                console.log("ALL OK");
+                resolve(true);
+            }
+
+            return tryRefresh();
+        }).catch((err) => {
+            resolve(false);
+        });
+    });
 }
 
 

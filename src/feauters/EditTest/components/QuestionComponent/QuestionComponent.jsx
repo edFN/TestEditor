@@ -9,7 +9,9 @@ import {BorderTextFieldUI} from "../../../../shared/components/TextFieldUI/TextF
 const TextAnswerText = ({onChange, initial=null})=>{
     const [answerText, setAnswerText] = useState(()=>{
 
-        if(initial){
+        console.log('initial', initial)
+
+        if(initial && initial.length > 0){
             return [initial[0]]
         }
 
@@ -34,7 +36,8 @@ const TextAnswerText = ({onChange, initial=null})=>{
     return (
         <>
             <div className={"one-variant-answer-div"}>
-                <BorderTextFieldUI borderType={"tf-30rem tf-border-black"} backgroundColor={"white"}  onChangeAction={handleTextChanged} label={"Ответ"} initial={answerText[0].answer_text} />
+                <BorderTextFieldUI borderType={"tf-30rem tf-border-black"} backgroundColor={"white"}  onChangeAction={handleTextChanged} label={"Ответ"} 
+                initial={answerText[0].answer_text} />
             </div>
         </>
 
@@ -202,9 +205,9 @@ const QuestionComponent = ({index, handleQuestion, initial=null})=>{
                 </div>
             </div>
 
-            {data.type == 1 && <OneVariantAnswer initial={initial.answers}  onChange={handleAnswers} />}
-            {data.type == 2 && <MultipleVariant  initial={initial.answers} onChange={handleAnswers}/>}
-            {data.type == 3 && <TextAnswerText initial={initial.answers} onChange={handleAnswers}/>}
+            {data.type == 1 && <OneVariantAnswer initial={initial ? initial.answers: null}  onChange={handleAnswers} />}
+            {data.type == 2 && <MultipleVariant  initial={initial ? initial.answers: null} onChange={handleAnswers}/>}
+            {data.type == 3 && <TextAnswerText initial={initial? initial.answers: null} onChange={handleAnswers}/>}
 
         </div>
     )
