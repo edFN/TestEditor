@@ -71,7 +71,7 @@ const OneVariantAnswer = ({onChange, initial=null})=>{
 
     const items = answers.map((item, index)=>(
         <div className="one-variant-choose">
-        <input type='radio' value={item.is_right} onChange={(e)=>handleChangeRadio(e,index)}/>
+        <input type='radio' checked={item.is_right} onChange={(e)=>handleChangeRadio(e,index)}/>
         <BorderTextFieldUI borderType={"tf-15rem tf-border-black"} backgroundColor={"white"}  onChangeAction={(e)=>{handleChangeText(e,index)}} initial={item.answer_text} />
         </div>
     ))

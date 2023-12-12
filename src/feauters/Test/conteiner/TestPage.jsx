@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import TestPanel from "../components/TestPanel/TestPanel";
+import sendAnswer from "../services/sendAnswers";
 
 const TestPage = ()=>{
 
@@ -23,11 +24,15 @@ const TestPage = ()=>{
 
             let filledAnswerTemplate = []
 
+            if(data.questions == 'undefined'){
+                window.location = '/'
+            }
+
             data.questions.forEach((item)=>{
                 if(item.type === 3){
                     filledAnswerTemplate.push(
                         {
-                            question: item.id,
+                            question_id: item.id,
                             answer_text: "",
                             answer_id:[]
                         })
@@ -35,7 +40,7 @@ const TestPage = ()=>{
                 else{
                     filledAnswerTemplate.push({
         
-                            question: item.id,
+                            question_id: item.id,
                             answer_id: [],
                             answer_text:""
                         }
@@ -71,6 +76,7 @@ const TestPage = ()=>{
     const handleClickPass = (e, index)=>{
         if(currentIndex == questionList.length-1){
             console.log("Passed")
+            sendAnswer(id,currentAnswers)
         }else{
             const newIndex = currentIndex + 1
             setCurrentIndex(newIndex)
@@ -90,7 +96,9 @@ const TestPage = ()=>{
 
         if(currentIndex == questionList.length-1){
             console.log("Passed")
-        }else{
+            sendAnswer(id,currentAnswers)
+        }
+        else{
             const newIndex = currentIndex + 1
             setCurrentIndex(newIndex)
         }

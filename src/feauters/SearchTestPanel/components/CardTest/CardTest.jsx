@@ -81,6 +81,9 @@ const CardDecriptionWindow = (props)=>{
         }
     }
 
+    const handleClickStart = (e)=>{
+        setTimeout(()=>window.location = `/test/${props.id}`, 700)
+    }
 
     return (
         <div className="wrapper-background-card-description" onClick={handleClickOutside}>
@@ -113,7 +116,7 @@ const CardDecriptionWindow = (props)=>{
                         </div>
                     </div>
                     <CenterLayout>
-                            <ButtonUI text="Пройти текст" type={'big green'}
+                            <ButtonUI text="Пройти текст" type={'big green'} onClickEvent={handleClickStart}
                         />
                     </CenterLayout>
                 </div>
