@@ -39,11 +39,19 @@ const MessageScoreForm = ({onChange, handleMessage, initial=null})=>{
         handleMessage(updatedAnswer, index)
     }
 
+    const handleDeleteMessage = (e, index) => {
+        const updatedAnswer = [...value]
+        updatedAnswer.splice(index,1)
+        setValue(updatedAnswer)
+        handleMessage(updatedAnswer, index)
+    }
+
 
     const entryTable = value.map((item,index)=>(
         <div className="table-entry-item">
             <input type="number" value={item.points} className="score-field" onChange={(e)=>handleChangeScore(e,index)}/>
             <textarea style={{borderStyle:`1 solid black`}} className='question-textarea' value={item.text} onChange={(e)=>handleChangeText(e,index)}></textarea>
+            <label onClick={(e)=>handleDeleteMessage(e,index)}>Удалить</label>
         </div>
     ))
 

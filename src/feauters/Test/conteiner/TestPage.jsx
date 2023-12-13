@@ -3,6 +3,8 @@ import {useParams} from "react-router-dom";
 import TestPanel from "../components/TestPanel/TestPanel";
 import sendAnswer from "../services/sendAnswers";
 
+import TestResultPanel from "../components/TestResultComponent/TestResultPanel";
+
 const TestPage = ()=>{
 
     const {id} = useParams()
@@ -14,6 +16,9 @@ const TestPage = ()=>{
 
 
     const [currentAnswers, setCurrentAnswers] = useState(null)
+
+
+    const [resultPage, setResultPage] = useState(null)
 
     useEffect(()=> {
         fetch(`http://localhost:8000/test/editor/${id}/`, {
@@ -73,17 +78,17 @@ const TestPage = ()=>{
         setCurrentAnswers(updateAnswer)       
     };
     
-    const handleClickPass = (e, index)=>{
+    const handleClickPass = async (e, index)=>{
         if(currentIndex == questionList.length-1){
             console.log("Passed")
-            sendAnswer(id,currentAnswers)
+            sendAnswer(id,currentAnswers,setResultPage)
         }else{
             const newIndex = currentIndex + 1
             setCurrentIndex(newIndex)
         }
     }
 
-    const handleClickAnswered = (e, index)=>{
+    const handleClickAnswered = async (e, index)=>{
         
         console.log("index", index)
         console.log("CurrentAnswer",currentAnswers[index])
@@ -96,7 +101,8 @@ const TestPage = ()=>{
 
         if(currentIndex == questionList.length-1){
             console.log("Passed")
-            sendAnswer(id,currentAnswers)
+
+            sendAnswer(id,currentAnswers,setResultPage)
         }
         else{
             const newIndex = currentIndex + 1
@@ -113,6 +119,11 @@ const TestPage = ()=>{
 
     if(questionList.length < 1){
         return <h1>No Questions</h1>
+    }
+
+    if(resultPage !== null){
+        console.log("ResultPage", resultPage)
+        return <TestResultPanel info={resultPage}/>
     }
 
     return (

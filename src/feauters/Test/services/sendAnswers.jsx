@@ -1,6 +1,6 @@
 
 
-const sendAnswer = (index, answersList) => {
+const sendAnswer = (index, answersList, setPage = ()=>{}) => {
 
     const answeredQuestions = answersList.filter((item)=>{
         return item.answer_text.length > 0 || item.answer_id.length > 0
@@ -19,14 +19,16 @@ const sendAnswer = (index, answersList) => {
             "Content-Type": "application/json",
             'Authorization': `Bearer ${localStorage.getItem("access_token")}`
         },
-    }).then((response)=>{
+    }).then(async (response)=>{
         if(response.status !== 200){
             throw new Error("Problems")
         }
+        const data = await response.json()
+        setPage(data)
 
-        return response.json()
-
-    }).then(data=>console.log(data)).catch((err)=>console.log(err))
+    }).then(data=>console.log(data)).catch((err)=>{
+        return setPage({message:"Произошла ошибка", points: null, checklist: null})
+    })
 }
 
 export default  sendAnswer

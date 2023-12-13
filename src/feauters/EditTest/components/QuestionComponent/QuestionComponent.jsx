@@ -171,6 +171,16 @@ const QuestionComponent = ({index, handleQuestion, initial=null})=>{
         console.log(data);
     };
 
+    const handleDelete = (e)=>{
+        setData(prevData => {
+            const newData = [...prevData]
+            newData.splice(index,1)
+            handleQuestion(newData, index);
+            return newData;
+        });
+    }
+
+
     useEffect(()=>console.log("Question",data), [data])
 
     return (
