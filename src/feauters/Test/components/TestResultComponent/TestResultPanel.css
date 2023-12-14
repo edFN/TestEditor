@@ -1,12 +1,33 @@
 
+@import url('../../../styles/_vars.css');
+
 .block-text-page-result{
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: normal;
     margin-top: 2rem;
-    text-align: center;
+    text-align: left;
+    overflow-y: auto;
+    font-family: var(--font-ptsans);
+    padding: 1rem;
+    border-radius: 10px;
+    height: 18rem;
+
+    -webkit-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+    box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+
 }
+
 
 .header-text-page-result{
     text-align: center;
     font-size: 2.2rem;
+    font-family: var(--font-epilogue);
+}
+
+.button-report-redirect{
+    display: block;
+    margin: 0 auto;
+    margin-left: 20px;
+    margin-top: 2rem;
 }

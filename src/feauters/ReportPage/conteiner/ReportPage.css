@@ -1,0 +1,32 @@
+
+
+
+
+.error-report h1{
+    text-align: center;
+}
+
+.success-report h1{
+    text-align: center;
+    
+}
+
+.header-report-success{
+    text-align: center;
+}
+
+.report-content{
+
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+    font-size: 1.5rem;
+}
+
+.report-answer-data{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    margin-top: 2rem;
+}

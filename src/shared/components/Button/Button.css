@@ -9,6 +9,12 @@
     margin: 0 auto;
 }
 
+
+.smaller{
+    min-width: 30%;
+    max-width: 40%;
+}
+
 .small{
     min-width: 50%;
     max-width: 60%;

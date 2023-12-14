@@ -1,4 +1,5 @@
 
+import ButtonUI from '../../../../shared/components/Button/Button'
 import './TestResultPanel.css'
 
 const TestResultPanel = ({info})=>{
@@ -9,8 +10,13 @@ const TestResultPanel = ({info})=>{
         <div className='test-window-wrapper'>
             <h2 className='header-text-page-result'>Вы прошли тест</h2>
             <div className="block-text-page-result">
-                {info.message}
+                <span>{info.message}</span>
             </div>
+            {info.checklist !== null && (
+            <div className="button-report-redirect">
+                <ButtonUI type={'green smaller'} text={"Просмотреть отчет"}/>
+            </div>
+            )}
         </div>
     </div>
     )
