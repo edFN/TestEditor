@@ -1,0 +1,24 @@
+
+
+.protocol-item-body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    width: 100%;
+    min-height: 5rem;
+    border: 1px solid black;
+    cursor: pointer;
+    padding: 2rem;
+}
+
+.user-answer-protocol-item > span{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.test-protocol-score > span{
+    font-size: 1.8rem;
+    color: green;
+    font-weight: bold;
+}

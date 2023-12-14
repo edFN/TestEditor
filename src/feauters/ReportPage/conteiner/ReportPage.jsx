@@ -13,14 +13,11 @@ const ReportPage = () =>{
 
 
     console.log(report)
-    
+
+
     if(!report.report && !report.error){
         return <h1>Loading...</h1>
     }
-
-    const reportList = report.report.test_answers.map((item)=>(
-        <ReportAnswer item={item}/>
-    ))
 
 
     return (
@@ -41,7 +38,9 @@ const ReportPage = () =>{
                           </div>
 
                           <div className="report-answer-data">
-                                {reportList}
+                              {report.report.test_answers.map((item) => (
+                                  <ReportAnswer item={item} />
+                              ))}
                           </div>  
                             
                             

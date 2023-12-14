@@ -33,6 +33,15 @@
     transition: 0.2s;
 }
 
+.btn-icon-bg-yellow{
+    background: #8f8f15;
+}
+
+.btn-icon-bg-yellow:hover{
+    background: #eaea0f;
+    transition: 0.2s;
+}
+
 .button-icon-ui .button-icon-image{
     width: 2.2rem;
     height: 2.2rem;

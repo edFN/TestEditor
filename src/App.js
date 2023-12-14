@@ -13,6 +13,7 @@ import LoginPage from "./feauters/LoginPage/conteiner/LoginPage";
 import UpdateTestPage from "./feauters/UpdateTest/conteiner/UpdateTestPage";
 import TestPage from "./feauters/Test/conteiner/TestPage";
 import ReportPage from './feauters/ReportPage/conteiner/ReportPage';
+import ListProtocolPage from "./feauters/ProtocolList/conteiner/ListProtocolPage";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
               <Route path='/edit/:id' element={<UpdateTestPage/>}/>
               <Route path='/login' element={<LoginPage/>}/>
               <Route path='/test/:id' element={<TestPage/>}/>
-              
+              <Route path='/protocol-list/:id' element={<ListProtocolPage/>} />
               <Route path='/protocol/:id' element={<ReportPage/>}/>
             
               <Route path='*' element={<NotFound/>}/>

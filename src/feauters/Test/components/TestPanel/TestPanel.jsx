@@ -53,10 +53,6 @@ const TestPanel = ({item, index, handleClickAnswer, handleClickPass,
         handleClickAnswer(e,index)
     }
 
-    
-    
-
-
     return (
         <div className={'test-panel-block'}>
             <div className='test-window-wrapper'>
@@ -70,7 +66,7 @@ const TestPanel = ({item, index, handleClickAnswer, handleClickPass,
 
                 <div className="test-buttons">
                     <ButtonUI type='green small' onClickEvent={handleAnswerClicked} text={"Ответить"}/>
-                    <ButtonUI type='blue small' onClickEvent={handleClickPass} text={'Пропустить'}/>
+                    <ButtonUI type='blue small' onClickEvent={(e)=>handleClickPass(e,index)} text={'Пропустить'}/>
                 </div>
             </div>
 

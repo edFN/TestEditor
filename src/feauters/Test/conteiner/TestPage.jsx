@@ -79,6 +79,12 @@ const TestPage = ()=>{
     };
     
     const handleClickPass = async (e, index)=>{
+
+        const updateAnswer = [...currentAnswers];
+        updateAnswer[index].answer_id = [];
+        updateAnswer[index].answer_text = "";
+        setCurrentAnswers(updateAnswer);
+
         if(currentIndex == questionList.length-1){
             console.log("Passed")
             sendAnswer(id,currentAnswers,setResultPage)

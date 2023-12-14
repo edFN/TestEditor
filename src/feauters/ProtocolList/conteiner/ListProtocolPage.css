@@ -1,0 +1,29 @@
+
+
+
+
+.protocol-list-wrapper{
+    display: block;
+    width: 60%;
+    min-height: 40rem;
+    margin: 0 auto;
+
+    margin-top: 5rem;
+
+    padding: 2rem;
+
+    -webkit-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+    box-shadow: -7px 4px 31px 9px rgba(34, 60, 80, 0.2);
+}
+
+.success-list-protocol > h1{
+    text-align: center;
+}
+
+.success-list-protocol-items{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    margin-top:2rem;
+}
