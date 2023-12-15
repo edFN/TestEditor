@@ -82,7 +82,15 @@ const CardDecriptionWindow = (props)=>{
     }
 
     const handleClickStart = (e)=>{
-        setTimeout(()=>window.location = `/test/${props.id}`, 700)
+        if(props.is_private === true){
+            if(localStorage.getItem('access_token') !== null){
+                setTimeout(()=>window.location = `/test/${props.id}`, 600)
+            }else{
+                alert("Вам недоступен данный тест. Нужна регистрация")
+            }
+        }else{
+            setTimeout(()=>window.location = `/test/${props.id}`, 600)
+        }
     }
 
     return (

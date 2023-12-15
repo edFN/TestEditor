@@ -26,7 +26,7 @@ function App() {
               <Route path='/edit/:id' element={<UpdateTestPage/>}/>
               <Route path='/login' element={<LoginPage/>}/>
               <Route path='/test/:id' element={<TestPage/>}/>
-              <Route path='/protocol-list/:id' element={<ListProtocolPage/>} />
+              <Route path='/protocol-list/:id' element={<ListProtocolPage/>} onEnter={(e)=>alert(123123)} />
               <Route path='/protocol/:id' element={<ReportPage/>}/>
             
               <Route path='*' element={<NotFound/>}/>

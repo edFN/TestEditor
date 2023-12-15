@@ -14,9 +14,21 @@ const LoginPage = () => {
         password: ''
     })
 
-    if(isLoggedIn() === true){
-       window.location = '/'
-    }
+    useEffect(() => {
+          const checkLoginStatus = async () => {
+            try {
+              const loggedIn = await isLoggedIn();
+              if (loggedIn) {
+                    window.location = '/'
+              } 
+            } catch (error) {
+              console.error("Error checking login status:", error);
+            }
+          };
+      
+          checkLoginStatus();
+        }, []);
+
 
     const [alertState, setAlertState] = useState(null)
 
@@ -62,6 +74,7 @@ const LoginPage = () => {
                         <ButtonUI type={'green'} text={"Вход"} type={'big green'} onClickEvent={submitForm}/>
                     </div>
 
+                    <label style={{color:`#1bcf48`, textAlign:'center', marginTop: `0.7rem`}} onClick={(e)=>window.location='/register'}>Пройти регистрацию</label>
 
                 </div>
             </div>

@@ -48,7 +48,7 @@ const BaseTestForm = ({onChange, handleImage, initial, changeMessage})=>{
                                     }
 
                                 ]} label="Показывать протокол тестирования"  onChange={(e)=>onChange(e)} name={"is_record_statistic"} initial={initial.is_record_statistic}/>
-                    <TagSelect/>
+                    {/* <TagSelect/> */}
 
                                 
 

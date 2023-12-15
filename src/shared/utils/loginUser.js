@@ -13,6 +13,8 @@ async function tryRefresh(){
         })
     }).then(async (response) => {
         if(response.status === 401){
+            localStorage.removeItem("access_token")
+            localStorage.removeItem("refresh_token")
             return false;
         }
 
@@ -62,6 +64,7 @@ function isLoggedIn() {
 
             return tryRefresh();
         }).catch((err) => {
+            
             resolve(false);
         });
     });

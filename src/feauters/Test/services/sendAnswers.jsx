@@ -12,13 +12,18 @@ const sendAnswer = (index, answersList, setPage = ()=>{}) => {
         answers: answeredQuestions
     }
 
+    let requestHeader = {
+        "Content-Type": "application/json",
+    }
+
+    if(localStorage.getItem("access_token") !== null){
+        requestHeader['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`
+    }       
+
     fetch(`http://localhost:8000/test/editor/${index}/accept_answers/`, {
         method: "POST",
         body: JSON.stringify(requestData),
-        headers: {
-            "Content-Type": "application/json",
-            'Authorization': `Bearer ${localStorage.getItem("access_token")}`
-        },
+        headers: requestHeader
     }).then(async (response)=>{
         if(response.status !== 200){
             throw new Error("Problems")

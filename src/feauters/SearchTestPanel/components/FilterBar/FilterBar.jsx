@@ -60,10 +60,10 @@ const FilterBar = ({visibleFunction, testOption,setFilterData}) => {
                     </div>
                 </div>
 
-                <div className="filter-bar-other-tags">
+                {/* <div className="filter-bar-other-tags">
                     <h3>Теги</h3>
                     <TagSelect testOption={testOption}/>
-                </div>
+                </div> */}
             </div>
 
             <div className="filter-bar-buttons">

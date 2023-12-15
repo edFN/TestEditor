@@ -12,13 +12,17 @@ const useReportUser = (id) => {
 
     const API_BASE_URL = `http://localhost:8000/test/protocol/${id}`;
 
+    let requestHeader = {}
+
+    if(localStorage.getItem("access_token") !== null){
+        requestHeader['Authorization'] = `Bearer ${localStorage.getItem("access_token")}`
+    }   
+
     useEffect(()=>{
         
         fetch(API_BASE_URL, {
             method: "GET",
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem("access_token")}`
-            }
+            headers: requestHeader
         }).then((response)=>{
             if(response.status === 400){
                 throw new Error("Нет доступа к контенту")

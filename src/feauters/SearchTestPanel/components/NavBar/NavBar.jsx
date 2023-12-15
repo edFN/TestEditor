@@ -33,7 +33,16 @@ const NavBar = ({user}) => {
                         {listItems}
                     </ul>
                     <div className="user-avatar">
-                        <img src={AvatarImg}/>
+                        {user === null ? <img src={AvatarImg} onClick={(e)=>window.location='/login'}/>: user.avatar ? 
+                        <img src={user.avatar} onClick={(e)=>{
+                            localStorage.removeItem('access_token');
+                            localStorage.removeItem("refresh_token");
+                            window.location='/'
+                        }}/>:<img src={AvatarImg} onClick={(e)=>{
+                            localStorage.removeItem('access_token');
+                            localStorage.removeItem("refresh_token");
+                            window.location='/'
+                        }}/>  }
                         {user !== null ? <span>{`${user.last_name} ${user.first_name} ${user.patronymic}`}</span>: <span>Гость</span>}
                     </div>
 

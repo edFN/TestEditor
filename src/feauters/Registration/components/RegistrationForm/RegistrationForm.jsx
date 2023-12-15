@@ -17,10 +17,7 @@ const RegistrationForm = () => {
 
     const [alertState, setAlertState] = useState(null);
 
-    if(isLoggedIn()){
-        window.location ='/'
-    }
-
+    
     const [formData, setFormData] = useState({
         email: '',
         last_name: '',
@@ -83,6 +80,21 @@ const RegistrationForm = () => {
         })
     }
 
+    useEffect(() => {
+        const checkLoginStatus = async () => {
+          try {
+            const loggedIn = await isLoggedIn();
+            if (loggedIn) {
+                  window.location = '/'
+            } 
+          } catch (error) {
+            console.error("Error checking login status:", error);
+          }
+        };
+    
+        checkLoginStatus();
+      }, []);
+
 
 
     return (
@@ -119,12 +131,7 @@ const RegistrationForm = () => {
                                            name="password" borderType={'tf-30rem'} className="form-register-item" type='tf-field-standart'
                                            onChangeAction={onChange}/>
                     </div>
-                    <div className={"form-item"}>
-                        <label>Повтор пароля</label>
-                        <BorderTextFieldUI placeHolder="Пароль" typeForm="password"
-                                           name="patronymic" borderType={'tf-30rem'} className="form-register-item" type={'tf-field-standart'}
-                                           onChangeAction={onChange}/>
-                    </div>
+                    
                     <div className={"form-item"}>
                         <label>Дата рождения</label>
                         <input type="date" name="birth_date" className={'birth_date-form'} onChange={onChange}/>

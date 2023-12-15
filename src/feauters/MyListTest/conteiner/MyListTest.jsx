@@ -11,10 +11,20 @@ import {isLoggedIn} from "../../../shared/utils/loginUser";
 
 const MyListTestPage = ()=>{
 
-    if(isLoggedIn() === false){
-        window.location = '/login'
-    }
-
+    useEffect(() => {
+        const checkLoginStatus = async () => {
+          try {
+            const loggedIn = await isLoggedIn();
+            if (loggedIn === false) {
+                  window.location = '/login'
+            } 
+          } catch (error) {
+            console.error("Error checking login status:", error);
+          }
+        };
+    
+        checkLoginStatus();
+      }, []);
     const [testList, setTestList] = useTestList(true);
 
     console.log(testList)
