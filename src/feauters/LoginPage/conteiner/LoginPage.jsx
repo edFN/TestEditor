@@ -36,11 +36,10 @@ const LoginPage = () => {
         setFormLogin({...formLogin, [e.target.name]: e.target.value})
     }
 
-    const submitForm = () => {
-        if (loginUser(formLogin.email, formLogin.password)) {
+    const submitForm = async () => {
+        if (await loginUser(formLogin.email, formLogin.password) === true) {
             setAlertState(true)
-
-            setTimeout(()=>window.location='/', 1500)
+            setTimeout(()=>window.location='/', 1200)
 
         } else {
             setAlertState(false)
